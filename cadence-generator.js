@@ -15,8 +15,9 @@ let restOfWord = v.split(' ').slice(1).join('');
 let functionName = firstLtr.toLowerCase() + firstWord + restOfWord + 'Generator';
 
 let genFunction  = mod[functionName];
-console.log(genFunction(data,v));
- 
+// console.log(genFunction(data,v));
+// console.log(functionName);
+console.log(mod.heroBannersGenerator(data,v));
 
 });
 
