@@ -682,6 +682,700 @@ module.exports = {
            ${data}
         </div>
     </div>`
+    },
+    htmlAdGeneralStyles: () => {
+        return `
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        body .ad-wrapper * {
+            font-family: Lato, sans-serif;
+        }
+        .ad-wrapper {
+            /* width: 100%; */
+            height: calc(100% - 2px);
+            margin: 0% auto;
+            text-align: center;
+            font-family: Lato, sans-serif;
+            border: 1px solid black;
+            padding: 0;
+            position: relative;
+        }
+        .ad-wrapper img {
+            width: 100%;
+            display: block;
+        }
+        .ad-wrapper h2 {
+            color: #012169;
+            font-weight: bold;
+            margin: 4% 0 2%;
+        }
+        .mask {
+            overflow: hidden;
+        }
+        .mask ul {
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+        .mask ul li {
+            width: 100%;
+            height: 28vh;
+            position: absolute;
+            top: -14vh;
+            list-style: none;
+        }
+        .mask:hover ul li.anim1,
+        .mask:hover ul li.anim2 {
+            -webkit-animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+        .mask ul li.anim1 {
+            animation: cycle 7s 3 linear;
+            animation-fill-mode: forwards;
+        }
+        .mask ul li.anim2 {
+            animation: cycle2 7s 3 linear;
+            animation-fill-mode: forwards;
+        }
+        .mask ul li.anim1 h2.second-step span:first-child {
+            font-size: 60%;
+            vertical-align: top;
+        }
+        .mask ul li.anim1 h2.second-step span:nth-child(2) {
+            margin-left: -20%;
+            font-size: 33%;
+            vertical-align: baseline;
+        }
+        .ad-wrapper:hover li {
+            animation-play-state: paused;
+        }
+        .ad-wrapper .ad-button {
+            background: #0458ad;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .ad-wrapper .ad-button:hover {
+            background-color: #012169;
+        }
+        @keyframes cycle {
+            0% {
+                top: 0px;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            45% {
+                top: 0px;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            50% {
+                top: 175px;
+                opacity: 0;
+                z-index: 0;
+            }
+
+            51% {
+                top: -175px;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            95% {
+                top: 175px;
+                opacity: 0;
+                z-index: 0;
+            }
+
+            96% {
+                top: -175px;
+                opacity: 0;
+                z-index: 0;
+            }
+
+            100% {
+                top: 0px;
+                opacity: 1;
+                z-index: 0;
+            }
+        }
+        @keyframes cycle2 {
+            0% {
+                top: -175px;
+                opacity: 0;
+            }
+
+            45% {
+                top: -175px;
+                opacity: 0;
+            }
+
+            50% {
+                top: 0px;
+                opacity: 1;
+            }
+
+            51% {
+                top: 0px;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            94% {
+                top: 0px;
+                opacity: 1;
+                z-index: 0;
+            }
+
+            99% {
+                top: 175px;
+                opacity: 0;
+                z-index: 0;
+            }
+
+            100% {
+                top: -175px;
+                opacity: 0;
+                z-index: 0;
+            }
+        }`
+    },
+    htmlAd160x600Styles: () => {
+        return `body {
+            width: 160px;
+            height: 600px;
+        }
+        .ad-wrapper .ad-svg svg {
+            width: 85%;
+            margin: 15% 0 0;
+        }
+        .mask {
+            height: 26.5%;
+        }
+        .mask ul li.anim2 h2.first-step {
+            font-size: 32px;
+            margin: 4% 6% 2%;
+        }
+        .mask ul li.anim2 p {
+            color: #012169;
+            font-size: 20px;
+            margin: 5% 0 0%;
+            font-weight: bold;
+        }
+        .mask ul li.anim1 h2.second-step {
+            font-size: 36px;
+            line-height: .7;
+            margin: 30% 0 2%;
+        }
+        .mask ul li.anim1 p {
+            color: #012169;
+            font-size: 15px;
+            margin: 5% 3% 0;
+        }
+        .ad-wrapper .ad-button {
+            padding: 4% 7%;
+            margin: 4% 0 8%;
+            font-size: 16px;
+        }
+        `
+    },
+    htmlAd300x250Styles: () => {
+        return `body {
+            width: 300px;
+            height: 250px;
+        }
+        .ad-wrapper {
+            display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+            display: -ms-flexbox;      /* TWEENER - IE 10 */
+            display: -webkit-flex;     /* NEW - Chrome */
+            display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        }
+        .ad-wrapper .ad-svg svg {
+            width: 85%;
+            margin: 15% 0 0;
+        }
+        .mask {
+            height: 52%;
+        }
+        .mask ul li.anim2 h2.first-step {
+            font-size: 28px;
+            margin: 0% 9% 2%;
+        }
+        .mask ul li.anim2 p {
+            color: #012169;
+            font-size: 18px;
+            margin: 0% 0 0%;
+            font-weight: bold;
+        }
+        .mask ul li.anim1 h2.second-step {
+            font-size: 34px;
+            line-height: .7;
+            margin: 23% 0 2%;
+        }
+        .mask ul li.anim1 p {
+            color: #012169;
+            font-size: 13px;
+            margin: 5% 0% 0;
+        }
+        .ad-wrapper .position-1 {
+            order: 2;
+        }
+        .ad-wrapper .ad-button {
+            padding: 5% 8%;
+            margin: 4% 0;
+            font-size: 13px;
+        }
+        `
+    },
+    htmlAdContent300x250Wrapper: (data) => {
+        return `<div class="position-1">${data}</div>`
+    },
+    htmlAd300x600Styles: () => {
+        return `body {
+            width: 300px;
+            height: 600px;
+        }
+        .ad-wrapper .ad-svg svg {
+            width: 70%;
+            margin: 5% 0;
+        }
+        .mask {
+            height: 26.7%;
+        }
+        .mask ul li.anim2 h2.first-step {
+            font-size: 33px;
+            margin: 0% 9% 2%;
+        }
+        .mask ul li.anim2 p {
+            color: #012169;
+            font-size: 20px;
+            margin: 5% 0 2%;
+            font-weight: bold;
+        }
+        .mask ul li.anim1 h2.second-step {
+            font-size: 65px;
+            line-height: .7;
+            margin: 15% 0 2%;
+        }
+        .mask ul li.anim1 p {
+            color: #012169;
+            font-size: 17px;
+            margin: 5% 0 0;
+        }
+        .ad-wrapper .ad-button {
+            padding: 4% 7%;
+            margin: 4% 0;
+            font-size: 16px;
+        }
+        `
+    },
+    htmlAd320x50Styles: () => {
+        return `body {
+            width: 320px;
+            height: 50px;
+        }
+        body a {
+            color: transparent;
+        }
+        .ad-wrapper {
+            display: -webkit-box;
+            /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box;
+            /* OLD - Firefox 19- (buggy but mostly works) */
+            display: -ms-flexbox;
+            /* TWEENER - IE 10 */
+            display: -webkit-flex;
+            /* NEW - Chrome */
+            display: flex;
+            /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        }
+        .ad-wrapper .ad-svg {
+            width: 67%;
+        }
+        .ad-wrapper .ad-svg svg {
+            width: 100%;
+            margin: 6% 0 0 5%;
+        }
+        .mask {
+            height: 100%;
+            width: 100%;
+        }
+        .mask ul li.anim2 h2.first-step {
+            font-size: 12px;
+            margin: 1% 0% 0%;
+        }
+        .mask ul li.anim2 p {
+            color: #012169;
+            font-size: 13px;
+            margin: 4% 0 0%;
+            font-weight: bold;
+        }
+        .mask ul li.anim1 h2.second-step {
+            font-size: 22px;
+            line-height: .7;
+            margin: 6% 0 2%;
+        }
+        .mask ul li.anim1 p {
+            color: #012169;
+            font-size: 12px;
+            margin: 0% 7% 0;
+        }
+        .ad-wrapper .ad-button {
+            padding: 1% 3%;
+            margin: 2% 2%;
+            font-size: 12px;
+        }
+        `
+    },
+    htmlAd728x90Styles: () => {
+        return `body {
+            width: 728px;
+            height: 90px;
+        }
+        body a {
+            color: transparent;
+        }
+        .ad-wrapper {
+            display: -webkit-box;
+            /* OLD - iOS 6-, Safari 3.1-6 */
+            display: -moz-box;
+            /* OLD - Firefox 19- (buggy but mostly works) */
+            display: -ms-flexbox;
+            /* TWEENER - IE 10 */
+            display: -webkit-flex;
+            /* NEW - Chrome */
+            display: flex;
+            /* NEW, Spec - Opera 12.1, Firefox 20+ */
+        }
+        .ad-wrapper .ad-svg svg {
+            width: 80%;
+            margin: 6% 0 0;
+        }
+        .ad-wrapper img {
+            width: auto;
+        }
+        .mask {
+            overflow: hidden;
+            height: 100%;
+            width: 40%;
+        }
+        .mask ul li.anim2 h2.first-step {
+            font-size: 22px;
+            margin: 0% 7% 2%;
+        }
+        .mask ul li.anim2 p {
+            color: #012169;
+            font-size: 18px;
+            margin: 1% 0 0%;
+            font-weight: bold;
+        }
+        .mask ul li.anim1 h2.second-step {
+            font-size: 40px;
+            line-height: .7;
+            margin: 10% 0 2%;
+        }
+        .mask ul li.anim1 p {
+            color: #012169;
+            font-size: 16px;
+            margin: 0% 7% 0;
+        }
+        .ad-wrapper .ad-button {
+            padding: 1% 3%;
+            margin: 4% 2%;
+            font-size: 12px;
+            width: 14%;
+        }
+        `
+    },
+    htmlAdContent: (data) => {
+        return `<div class="mask">
+        <ul>
+            <li class="anim1">
+                <p>${data.a2PreHeader ? data.a2PreHeader : ''}</p>
+                <h2 class="second-step">
+                    <!-- 20<span>%</span><span>OFF</span> -->
+                    ${data.a2Header}
+                </h2>
+                <p>${data.a2PostHeader ? data.a2PostHeader : ''}</p>
+            </li>
+            <li class="anim2">
+                <p>${data.a1PreHeader ? data.a1PreHeader : ''}</p>
+                <h2 class="first-step">
+                    ${data.a1Header}
+                </h2>
+                <p>${data.a1PostHeader ? data.a1PostHeader : ''}</p>
+            </li>
+        </ul>
+    </div>`
+    },
+    htmlAdSvg1: () => {
+        return `            <div class="ad-svg">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg class="html-ad-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 214 78.7"
+            style="enable-background:new 0 0 214 78.7;" xml:space="preserve">
+            <style type="text/css">
+                .html-ad-svg .st0 {
+                    fill: #012169;
+                }
+
+                .html-ad-svg .st1 {
+                    fill: #41B6E6;
+                }
+            </style>
+            <g>
+                <path class="st0" d="M2.9,68.6H0.3c-0.2,0-0.3-0.2-0.3-0.3v-2c0-0.2,0.1-0.3,0.3-0.3h8c0.2,0,0.3,0.2,0.3,0.3v2
+                c0,0.2-0.1,0.3-0.3,0.3H5.8v9.7c0,0.2-0.2,0.3-0.3,0.3H3.3c-0.2,0-0.3-0.2-0.3-0.3V68.6z M11.7,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2
+                c0.2,0,0.3-0.2,0.3-0.3v-4.8h5.2v4.8c0,0.2,0.1,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-12c0-0.2-0.2-0.3-0.3-0.3h-2.2
+                c-0.2,0-0.3,0.2-0.3,0.3v4.6h-5.2v-4.6c0-0.2-0.1-0.3-0.3-0.3h-2.2c-0.2,0-0.3,0.2-0.3,0.3V78.2z M27,78.2c0,0.2,0.1,0.3,0.3,0.3
+                h7.5c0.2,0,0.3-0.2,0.3-0.3v-2c0-0.2-0.1-0.3-0.3-0.3h-5v-2.4H34c0.2,0,0.3-0.1,0.3-0.3v-2c0-0.2-0.2-0.3-0.3-0.3h-4.1v-2.2h5
+                c0.2,0,0.3-0.2,0.3-0.3v-2c0-0.2-0.1-0.3-0.3-0.3h-7.5c-0.2,0-0.3,0.2-0.3,0.3V78.2z M49.3,78.5c0.1,0.1,0.2,0.2,0.3,0.2h0.2
+                c0.1,0,0.3-0.1,0.3-0.2l5.7-12.2c0.1-0.2,0-0.5-0.3-0.5H53c-0.1,0-0.3,0.1-0.3,0.2l-3,6.6h-0.1l-3-6.6c0-0.1-0.2-0.2-0.3-0.2h-2.4
+                c-0.3,0-0.4,0.2-0.3,0.5L49.3,78.5z M58.6,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-12c0-0.2-0.2-0.3-0.3-0.3H59
+                c-0.2,0-0.3,0.2-0.3,0.3V78.2z M67.4,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-9.7h2.6c0.2,0,0.3-0.2,0.3-0.3v-2
+                c0-0.2-0.1-0.3-0.3-0.3h-8c-0.2,0-0.3,0.2-0.3,0.3v2c0,0.2,0.1,0.3,0.3,0.3h2.6V78.2z M78.6,74.2l1.4-3h0l1.4,3H78.6z M73.9,78.1
+                c-0.1,0.2,0,0.5,0.3,0.5h2c0.4,0,0.6-0.2,0.7-0.4l0.7-1.4h4.9l0.7,1.4c0.2,0.3,0.3,0.5,0.6,0.5h2c0.3,0,0.4-0.2,0.3-0.5l-5.7-12.2
+                c-0.1-0.1-0.2-0.2-0.3-0.2h-0.2c-0.1,0-0.3,0.1-0.3,0.2L73.9,78.1 M88.6,78.2c0,0.2,0.1,0.4,0.3,0.4H91c0.2,0,0.3-0.1,0.3-0.3
+                l0.8-5.6h0l3.1,5.9c0.1,0.1,0.2,0.2,0.3,0.2h0.3c0.1,0,0.3-0.1,0.3-0.2l3-5.9h0l0.8,5.6c0,0.1,0.2,0.3,0.3,0.3h2.1
+                c0.2,0,0.4-0.2,0.3-0.4l-2-12.1c0-0.2-0.2-0.3-0.3-0.3h-0.3c-0.1,0-0.3,0.1-0.3,0.2l-4.2,7.8h0l-4.2-7.8c-0.1-0.1-0.2-0.2-0.3-0.2
+                h-0.3c-0.1,0-0.3,0.1-0.3,0.3L88.6,78.2z M106.6,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-12c0-0.2-0.2-0.3-0.3-0.3
+                h-2.2c-0.2,0-0.3,0.2-0.3,0.3V78.2z M113.8,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-6.7h0l7.1,7.2
+                c0,0,0.2,0.1,0.2,0.1h0.3c0.2,0,0.3-0.1,0.3-0.3V66.2c0-0.2-0.2-0.3-0.3-0.3h-2.2c-0.2,0-0.3,0.2-0.3,0.3v6.4h0l-7.2-6.9h-0.5
+                c-0.2,0-0.3,0.1-0.3,0.3L113.8,78.2z M134.7,76.8c-0.1,0.3-0.1,0.3,0.1,0.5c0.4,0.4,1.7,1.4,4.1,1.4c2.7,0,4.3-1.9,4.3-3.7
+                c0-2.5-2.2-3.6-3.7-4.1c-1.4-0.6-2-1.1-2-1.8c0-0.5,0.5-0.9,1.1-0.9c1.1,0,2.4,1,2.6,1.1c0.2,0.1,0.5,0,0.6-0.2l0.9-1.4
+                c0.1-0.1,0.1-0.5-0.1-0.6c-0.5-0.4-2-1.4-3.9-1.4c-2.8,0-4.2,1.8-4.2,3.6c0,2.2,2,3.4,3.5,4c1.2,0.5,1.9,1.1,1.9,1.8
+                c0,0.6-0.5,1.1-1.2,1.1c-1.2,0-2.5-1-2.6-1c-0.1-0.1-0.5-0.1-0.6,0.1L134.7,76.8 M146.8,78.2c0,0.2,0.2,0.3,0.3,0.3h2.2
+                c0.2,0,0.3-0.2,0.3-0.3v-4.8h5.2v4.8c0,0.2,0.1,0.3,0.3,0.3h2.2c0.2,0,0.3-0.2,0.3-0.3v-12c0-0.2-0.2-0.3-0.3-0.3h-2.2
+                c-0.2,0-0.3,0.2-0.3,0.3v4.6h-5.2v-4.6c0-0.2-0.1-0.3-0.3-0.3h-2.2c-0.2,0-0.3,0.2-0.3,0.3V78.2z M167.7,75.8c-2,0-3.6-1.6-3.6-3.6
+                c0-2,1.6-3.6,3.6-3.6c2,0,3.6,1.6,3.6,3.6C171.3,74.2,169.7,75.8,167.7,75.8 M167.7,65.7c-3.6,0-6.5,2.9-6.5,6.5
+                c0,3.6,2.9,6.5,6.5,6.5c3.6,0,6.5-2.9,6.5-6.5C174.2,68.6,171.3,65.7,167.7,65.7 M180.6,71.3v-2.8h1.7c0.8,0,1.4,0.6,1.4,1.3
+                c0,0.8-0.7,1.4-1.4,1.4H180.6z M177.8,78.2c0,0.2,0.1,0.3,0.3,0.3h2.1c0.2,0,0.3-0.2,0.3-0.3V74h1.9c2.2,0,4-1.8,4-4.1
+                c0-2.2-1.8-4-4-4h-4.4c-0.2,0-0.3,0.2-0.3,0.3V78.2z M192.5,71.3v-2.8h1.7c0.8,0,1.4,0.6,1.4,1.3c0,0.8-0.7,1.4-1.4,1.4H192.5z
+                M189.7,78.2c0,0.2,0.1,0.3,0.3,0.3h2.1c0.2,0,0.3-0.2,0.3-0.3V74h1.9c2.2,0,4-1.8,4-4.1c0-2.2-1.8-4-4-4H190
+                c-0.2,0-0.3,0.2-0.3,0.3V78.2z M201.6,78.2c0,0.2,0.1,0.3,0.3,0.3h7.5c0.2,0,0.3-0.2,0.3-0.3v-2c0-0.2-0.1-0.3-0.3-0.3h-5v-2.4h4.1
+                c0.2,0,0.3-0.1,0.3-0.3v-2c0-0.2-0.2-0.3-0.3-0.3h-4.1v-2.2h5c0.2,0,0.3-0.2,0.3-0.3v-2c0-0.2-0.1-0.3-0.3-0.3h-7.5
+                c-0.2,0-0.3,0.2-0.3,0.3V78.2z" />
+                <g>
+                    <path class="st1"
+                        d="M136,1.8c-2.5-1.8-15.5-4.2-21.5,3.3c-10.8,13.5,3.5,30.3,3.5,30.3L136,1.8z" />
+                    <path class="st0" d="M109,26.4c-3.2-6-7.5-14.7-8-15.6c-5.1-9-11.9-9.9-16-9.9H73.7c0,0,24.7,47.3,25,47.9
+                    c1.5,2.5,3.8,3.5,6.1,3.5c2.4,0,4.5-0.9,6.1-3.5l0,0l7-13.3C118,35.5,114.4,36.5,109,26.4" />
+                </g>
+                <path class="st0" d="M214,67.2c0,0.7-0.6,1.3-1.4,1.3c-0.8,0-1.4-0.6-1.4-1.3c0-0.7,0.6-1.3,1.4-1.3C213.4,65.9,214,66.4,214,67.2z
+                M211.6,67.2c0,0.6,0.4,1.1,1,1.1c0.6,0,1-0.5,1-1.1c0-0.6-0.4-1.1-1-1.1C212,66.1,211.6,66.6,211.6,67.2z M212.4,67.9h-0.3v-1.3
+                c0.1,0,0.3,0,0.5,0c0.3,0,0.4,0,0.5,0.1c0.1,0.1,0.1,0.2,0.1,0.3c0,0.2-0.1,0.3-0.3,0.3v0c0.1,0,0.2,0.1,0.2,0.3
+                c0,0.2,0.1,0.3,0.1,0.3h-0.3c0,0-0.1-0.2-0.1-0.3c0-0.1-0.1-0.2-0.3-0.2h-0.1V67.9z M212.4,67.1h0.1c0.2,0,0.3-0.1,0.3-0.2
+                c0-0.1-0.1-0.2-0.3-0.2c-0.1,0-0.1,0-0.2,0V67.1z" />
+            </g>
+        </svg>
+    </div>`
+    },
+    htmlAdSvg2: () => {
+        return `<div class="ad-svg">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg class="html-ad-svg" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 202 74.53"
+            style="enable-background:new 0 0 202 74.53;" xml:space="preserve">
+            <style type="text/css">
+                .html-ad-svg .st0 {
+                    fill: #222C65;
+                }
+
+                .html-ad-svg .st1 {
+                    fill: #44B6E5;
+                }
+            </style>
+            <g>
+                <path class="st0" d="M180.43,45.5c0,0.25,0.23,0.48,0.48,0.48h2.99c0.28,0,0.48-0.23,0.48-0.48v-9.37h0.02l9.93,9.98
+c0.05,0.05,0.25,0.12,0.33,0.12h0.4c0.25,0,0.48-0.2,0.48-0.45V28.87c0-0.25-0.23-0.48-0.48-0.48h-3.02
+c-0.28,0-0.48,0.23-0.48,0.48v8.92h-0.02l-10.03-9.65h-0.63c-0.25,0-0.48,0.2-0.48,0.45L180.43,45.5L180.43,45.5z" />
+                <path class="st0" d="M170.3,45.5c0,0.25,0.23,0.48,0.48,0.48h3.01c0.25,0,0.48-0.23,0.48-0.48V28.87c0-0.25-0.23-0.48-0.48-0.48
+h-3.01c-0.25,0-0.48,0.23-0.48,0.48V45.5L170.3,45.5z" />
+                <path class="st0" d="M145.29,45.43c-0.05,0.33,0.18,0.55,0.48,0.55h2.97c0.25,0,0.45-0.2,0.48-0.4l1.11-7.77h0.05l4.25,8.14
+c0.07,0.15,0.28,0.28,0.43,0.28h0.45c0.13,0,0.35-0.12,0.43-0.28l4.22-8.14h0.05l1.13,7.77c0.02,0.2,0.25,0.4,0.48,0.4h2.96
+c0.3,0,0.53-0.23,0.48-0.55l-2.84-16.89c-0.03-0.23-0.25-0.4-0.45-0.4h-0.4c-0.13,0-0.35,0.1-0.43,0.25l-5.83,10.86h-0.05
+l-5.83-10.86c-0.08-0.15-0.3-0.25-0.43-0.25h-0.4c-0.2,0-0.43,0.18-0.45,0.4L145.29,45.43L145.29,45.43z" />
+                <path class="st0" d="M124.92,45.33c-0.15,0.33,0.05,0.65,0.43,0.65h2.76c0.5,0,0.78-0.3,0.91-0.6l0.9-2.01h6.83l0.91,1.98
+c0.23,0.48,0.43,0.63,0.88,0.63h2.79c0.38,0,0.58-0.33,0.43-0.65l-7.87-16.91c-0.08-0.15-0.25-0.28-0.43-0.28h-0.25
+c-0.18,0-0.35,0.13-0.43,0.28L124.92,45.33 M131.43,39.95l1.89-4.15h0.02l1.91,4.15H131.43L131.43,39.95z" />
+                <path class="st0" d="M115.9,45.5c0,0.25,0.23,0.48,0.48,0.48h3.02c0.25,0,0.48-0.23,0.48-0.48V32.09h3.59
+c0.28,0,0.48-0.23,0.48-0.48v-2.74c0-0.25-0.2-0.48-0.48-0.48h-11.16c-0.28,0-0.48,0.23-0.48,0.48v2.74c0,0.25,0.2,0.48,0.48,0.48
+h3.59V45.5L115.9,45.5z" />
+                <path class="st0" d="M103.69,45.5c0,0.25,0.23,0.48,0.48,0.48h3.01c0.25,0,0.48-0.23,0.48-0.48V28.87c0-0.25-0.23-0.48-0.48-0.48
+h-3.01c-0.25,0-0.48,0.23-0.48,0.48V45.5L103.69,45.5z" />
+                <path class="st0" d="M90.66,45.96c0.08,0.15,0.23,0.28,0.43,0.28h0.25c0.2,0,0.35-0.12,0.43-0.28l7.89-16.91
+c0.15-0.33-0.05-0.65-0.43-0.65h-3.34c-0.2,0-0.38,0.15-0.43,0.28l-4.15,9.17h-0.15l-4.15-9.17c-0.05-0.12-0.23-0.28-0.43-0.28
+h-3.34c-0.38,0-0.58,0.33-0.43,0.65L90.66,45.96L90.66,45.96z" />
+            </g>
+            <g>
+                <path class="st0" d="M120.35,21.18c0,0.25,0.2,0.48,0.48,0.48h10.4c0.28,0,0.48-0.23,0.48-0.48v-2.74c0-0.25-0.2-0.48-0.48-0.48
+h-6.96v-3.39H130c0.25,0,0.48-0.2,0.48-0.48v-2.74c0-0.25-0.23-0.48-0.48-0.48h-5.73V7.76h6.96c0.28,0,0.48-0.23,0.48-0.48V4.54
+c0-0.25-0.2-0.48-0.48-0.48h-10.4c-0.28,0-0.48,0.23-0.48,0.48V21.18L120.35,21.18z" />
+                <path class="st0" d="M99.08,21.18c0,0.25,0.23,0.48,0.48,0.48h2.99c0.28,0,0.48-0.23,0.48-0.48v-6.61h7.19v6.61
+c0,0.25,0.2,0.48,0.48,0.48h2.99c0.25,0,0.48-0.23,0.48-0.48V4.54c0-0.25-0.23-0.48-0.48-0.48h-2.99c-0.28,0-0.48,0.23-0.48,0.48
+v6.33h-7.19V4.54c0-0.25-0.2-0.48-0.48-0.48h-2.99c-0.25,0-0.48,0.23-0.48,0.48V21.18L99.08,21.18z" />
+                <path class="st0" d="M86.84,7.76h-3.59c-0.28,0-0.48-0.23-0.48-0.48V4.54c0-0.25,0.2-0.48,0.48-0.48h11.16
+c0.28,0,0.48,0.23,0.48,0.48v2.74c0,0.25-0.2,0.48-0.48,0.48h-3.59v13.42c0,0.25-0.23,0.48-0.48,0.48h-3.01
+c-0.25,0-0.48-0.23-0.48-0.48V7.76L86.84,7.76z" />
+            </g>
+            <g>
+                <path class="st1"
+                    d="M80.24,6.4c-3.2-2.33-19.68-5.27-27.26,4.2C39.33,27.66,57.35,49,57.35,49L80.24,6.4L80.24,6.4z" />
+                <path class="st0" d="M46.01,37.49c-4.06-7.57-9.43-18.59-10.11-19.78C29.44,6.35,20.8,5.22,15.65,5.22H1.35
+c0,0,31.27,59.82,31.68,60.59c1.96,3.11,4.78,4.39,7.76,4.4c2.99-0.01,5.76-1.13,7.67-4.4l0-0.01L57.35,49
+C57.35,49,52.9,50.32,46.01,37.49" />
+            </g>
+            <g>
+                <path class="st0" d="M175.84,69.74c0,0.25,0.2,0.48,0.48,0.48h10.4c0.28,0,0.48-0.23,0.48-0.48V67c0-0.25-0.2-0.48-0.48-0.48h-6.96
+v-3.39h5.73c0.25,0,0.48-0.2,0.48-0.48v-2.74c0-0.25-0.23-0.48-0.48-0.48h-5.73v-3.12h6.96c0.28,0,0.48-0.23,0.48-0.48V53.1
+c0-0.25-0.2-0.48-0.48-0.48h-10.4c-0.28,0-0.48,0.23-0.48,0.48V69.74L175.84,69.74z" />
+                <path class="st0" d="M142.82,69.74c0,0.25,0.2,0.48,0.48,0.48h2.96c0.25,0,0.48-0.23,0.48-0.48v-5.91h2.64
+c3.07,0,5.6-2.54,5.6-5.65c0-3.04-2.54-5.55-5.63-5.55h-6.06c-0.28,0-0.48,0.23-0.48,0.48V69.74L142.82,69.74z M146.74,60.16v-3.85
+h2.39c1.08,0,1.98,0.8,1.98,1.86c0,1.13-0.9,1.99-1.98,1.99H146.74L146.74,60.16z" />
+                <path class="st0" d="M128.76,52.37c-5.03,0-9.02,4.05-9.02,9.07c0,5.03,4,9.02,9.02,9.02c5.03,0,9.05-3.99,9.05-9.02
+C137.81,56.42,133.79,52.37,128.76,52.37 M128.76,66.45c-2.74,0-5-2.26-5-5c0-2.76,2.26-5.05,5-5.05c2.76,0,5.03,2.29,5.03,5.05
+C133.79,64.18,131.52,66.45,128.76,66.45" />
+                <path class="st0" d="M99.66,69.74c0,0.25,0.23,0.48,0.48,0.48h2.99c0.28,0,0.48-0.23,0.48-0.48v-6.61h7.19v6.61
+c0,0.25,0.2,0.48,0.48,0.48h2.99c0.25,0,0.48-0.23,0.48-0.48V53.1c0-0.25-0.23-0.48-0.48-0.48h-2.99c-0.28,0-0.48,0.23-0.48,0.48
+v6.33h-7.19V53.1c0-0.25-0.2-0.48-0.48-0.48h-2.99c-0.25,0-0.48,0.23-0.48,0.48V69.74L99.66,69.74z" />
+                <path class="st0" d="M82.9,67.83c-0.2,0.35-0.13,0.45,0.13,0.7c0.58,0.58,2.39,1.93,5.65,1.93c3.69,0,5.93-2.61,5.93-5.2
+c0-3.42-3.12-4.95-5.08-5.73c-1.99-0.8-2.74-1.51-2.74-2.44c0-0.68,0.68-1.28,1.58-1.28c1.53,0,3.37,1.38,3.59,1.51
+c0.23,0.18,0.68-0.05,0.86-0.33l1.28-1.94c0.1-0.18,0.15-0.63-0.15-0.8c-0.75-0.55-2.76-1.88-5.38-1.88c-3.87,0-5.8,2.51-5.8,5
+c0,3.02,2.71,4.7,4.88,5.55c1.71,0.68,2.59,1.48,2.59,2.54c0,0.88-0.73,1.51-1.73,1.51c-1.66,0-3.47-1.33-3.57-1.38
+c-0.18-0.13-0.65-0.18-0.85,0.15L82.9,67.83" />
+                <path class="st0" d="M190.93,54.34h0.2c0.24,0,0.43-0.08,0.43-0.27c0-0.17-0.12-0.28-0.4-0.28c-0.11,0-0.19,0.01-0.24,0.02V54.34
+L190.93,54.34z M190.92,55.38h-0.43v-1.85c0.17-0.02,0.41-0.06,0.71-0.06c0.35,0,0.51,0.06,0.63,0.15c0.11,0.08,0.19,0.22,0.19,0.4
+c0,0.23-0.17,0.37-0.39,0.44v0.02c0.18,0.06,0.27,0.2,0.33,0.45c0.06,0.28,0.1,0.38,0.13,0.45h-0.45
+c-0.05-0.07-0.09-0.23-0.15-0.45c-0.03-0.19-0.15-0.28-0.38-0.28h-0.2V55.38L190.92,55.38z M189.77,54.42
+c0,0.83,0.62,1.48,1.45,1.48c0.8,0.01,1.41-0.66,1.41-1.47c0-0.83-0.61-1.49-1.44-1.49C190.4,52.94,189.77,53.61,189.77,54.42
+L189.77,54.42z M193.11,54.42c0,1.04-0.84,1.87-1.9,1.87c-1.06,0-1.91-0.82-1.91-1.87c0-1.04,0.85-1.85,1.92-1.85
+C192.27,52.57,193.11,53.38,193.11,54.42L193.11,54.42z" />
+                <path class="st0" d="M159.33,69.74c0,0.25,0.2,0.48,0.48,0.48h2.96c0.25,0,0.48-0.23,0.48-0.48v-5.91h2.64
+c3.07,0,5.6-2.54,5.6-5.65c0-3.04-2.54-5.55-5.63-5.55h-6.06c-0.28,0-0.48,0.23-0.48,0.48V69.74L159.33,69.74z M163.25,60.16v-3.85
+h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" />
+            </g>
+        </svg>
+    </div>`
+    },
+    htmlAdImage: (data) => {
+        return  `<img src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}">`
+    },
+    htmlAdCTA: (data) => {
+        return  `<div class="ad-button">
+                    ${data.ctaText}
+                </div>`
+    },
+    htmlAdWrapper: (data, styles, extraStyles, content) => {
+        return `<!DOCTYPE html>
+        <html>
+
+        <head>
+            <title>${data.name}_${data.width}x${data.height}</title>
+            <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
+            <script type="text/javascript">
+                var clickTag = "https://www.vitaminshoppe.com/${data.url}";
+            </script>
+            <style>
+                ${styles}
+                ${extraStyles}
+            </style>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        </head>
+        
+        <body>
+            <a href="javascript:window.open(window.clickTag)">
+                <div class="ad-wrapper">
+                    ${content}
+                </div>
+            </a>
+        </body>
+        
+        </html>`
+    },
+    htmlAdGenerator: (data, v) => {
+        const fs = require('fs');
+        fs.mkdirSync(v);
+        let folderName = v,
+        markup = '',
+        styles = module.exports.htmlAdGeneralStyles();
+        data.map((val) => {
+            let fileName = val.name, 
+            layoutWidth = val.width,
+            layoutHeight = val.height,
+            extraStyles = '',
+            content = '';
+
+            if (layoutWidth === 160 && layoutHeight === 600) {
+                extraStyles = module.exports.htmlAd160x600Styles();
+                // append svg logo to the top
+                content = module.exports.htmlAdSvg1();
+                // regular content
+                content += module.exports.htmlAdContent(val);
+                //add CTA
+                content += module.exports.htmlAdCTA(val);
+                //add image
+                content += module.exports.htmlAdImage(val);
+            } else if (layoutWidth === 300 && layoutHeight === 250) {
+                extraStyles = module.exports.htmlAd300x250Styles();
+                // append svg logo to the top
+                content += module.exports.htmlAdSvg1();
+                // regular content
+                content += module.exports.htmlAdContent(val);
+                //add CTA
+                content += module.exports.htmlAdCTA(val);
+                // in case we need an extra layout block
+                content = module.exports.htmlAdContent300x250Wrapper(content);
+                //add image
+                content += module.exports.htmlAdImage(val);
+            } else if (layoutWidth === 300 && layoutHeight === 600) {
+                extraStyles = module.exports.htmlAd300x600Styles();
+                // append svg logo to the top
+                content += module.exports.htmlAdSvg1();
+                // regular content
+                content += module.exports.htmlAdContent(val);
+                //add CTA
+                content += module.exports.htmlAdCTA(val);
+                //add image
+                content += module.exports.htmlAdImage(val);
+            } else if (layoutWidth === 320 && layoutHeight === 50) {
+                extraStyles = module.exports.htmlAd320x50Styles();
+                // append svg logo to the top
+                content += module.exports.htmlAdSvg2();
+                // regular content
+                content += module.exports.htmlAdContent(val);
+                //add CTA
+                content += module.exports.htmlAdCTA(val);
+            } else if (layoutWidth === 728 && layoutHeight === 90) {
+                extraStyles = module.exports.htmlAd728x90Styles();
+                // append svg logo to the top
+                content += module.exports.htmlAdSvg1();
+                // regular content
+                content += module.exports.htmlAdContent(val);
+                //add image
+                content += module.exports.htmlAdImage(val);
+                //add CTA
+                content += module.exports.htmlAdCTA(val);
+            }
+            markup = module.exports.htmlAdWrapper(val, styles, extraStyles, content);
+
+            fs.writeFile(`./${folderName}/${fileName}_${layoutWidth}x${layoutHeight}.html`, markup, function (err) {
+                if (err) throw err;
+            });
+            content = "";
+            markup = '';
+        });
     }
 }
-
