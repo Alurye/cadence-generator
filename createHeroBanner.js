@@ -89,7 +89,7 @@ module.exports = {
         }  
       },
       postHeaderText3: (data) => {
-        if (typeof data.brandDescription !== "undefined") {
+        if (typeof data.postHeaderText3 !== "undefined") {
             return `<p class="hero-banner__post-header-line-3">
                            ${data.postHeaderText3}
                         </p>`
@@ -783,7 +783,7 @@ module.exports = {
                 </div>
                 <div class="bb-block__text-wrapper">
                     <p class="bb-block__text bb-block__text-line-1">${data.promotion}</p>
-                    <p class="bb-block__text bb-block__text-line-2">${data.brandDescription}.</p>
+                    <p class="bb-block__text bb-block__text-line-2">${data.brandDescription}</p>
                 </div>
                 <p class="bb-block__cta">${data.ctaText || ''}</p>
             </div>
