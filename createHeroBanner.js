@@ -688,6 +688,7 @@ module.exports = {
         body {
             margin: 0;
             overflow: hidden;
+            background: white;
         }
         body .ad-wrapper * {
             font-family: Lato, sans-serif;
@@ -1315,8 +1316,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             let fileName = val.name, 
             layoutWidth = val.width,
             layoutHeight = val.height,
-            extraStyles = '',
-            content = '';
+            extraStyles = '';
 
             if (layoutWidth === 160 && layoutHeight === 600) {
                 extraStyles = module.exports.htmlAd160x600Styles();
