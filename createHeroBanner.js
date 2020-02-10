@@ -668,6 +668,23 @@ module.exports = {
         }
     </style>`
     },
+    dealsDrawerUpperGenerator: (data, v) => {
+        const fs = require('fs');
+        fs.mkdirSync(v);
+        let folderName = v;
+        let markup = '';
+        data.map((val,i) => {
+            let fileName = val.name;
+            let html = module.exports.dealsDrawerUpperemplate(val);
+            let styles = module.exports.dealsDrawerUpperStyles();
+            markup = styles + html;
+            fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
+                if (err) throw err;
+
+            });
+
+        });
+    },
     promoShortBillboardGenerator: (data, v) => {
         const fs = require('fs');
         fs.mkdirSync(v);
@@ -918,7 +935,7 @@ module.exports = {
         }
     </style>`
     },
-    dealsDrawerUpperStyles: (data) => {
+    dealsDrawerUpperStyles: () => {
         return `<style class="ng-scope">
         /* STYLES BELOW ARE FOR BLOG HEADER FIX */
     
@@ -1173,6 +1190,31 @@ module.exports = {
             }
         }
     </style>`
+    },
+    dealsDrawerUppertemplate : (data) => {
+        return `<a class="bmsm-d2__link-wrapper" href="${data.url}" tabindex="-1" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}" ${data.trackingCode}>
+        <div class="bmsm-d2__image-container">
+           <img src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=70" alt="">
+        </div>
+        <div class="bmsm-d2__content">
+           <div class="bmsm-d2__top bmsms-d2__percent">
+             ${data.preHeader}
+           </div>
+           <div class="bmsm-d2__main-message bmsm-d2__main-message-v1">
+              <p class="bmsm-d2__header bmsm-d2__header-v1">
+               ${data.promotion}
+              </p>
+           </div>
+           <div class="bmsm-d2__post-header-group">
+              <p class="bmsm-d2__post-header bmsm-d2__post-header-line1">
+           ${data.brandDescription}
+              </p>
+           </div>
+           <p class="bmsm-d2__cta bmsm-d2__cta--blue" tabindex="0" role="link" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}">
+              ${data.ctaText}
+           </p>
+        </div>
+     </a>`
     }
 }
 
