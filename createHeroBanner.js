@@ -1378,6 +1378,40 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             markup = '';
         });
     },
+    BOTBTemplate: (data) => {
+        return  `<div class="product ${data.class}" data-polldaddy-id="${data.pollId}">
+                        <a href="${data.url}">
+                            <img class="prod-img"
+                                src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.sku}_01?$OP_JPG$&amp;qlt=75">
+                        </a>
+                        <p class="brand-name">${data.brand}</p>
+                        <a href="${data.url}">
+                            <p class="product-container-name">${data.name}</p>
+                        </a>
+                        <p class="prod-flavor">${data.flavor}</p>
+                        <div class="status-bar-wrapper">
+                            <p class="perc">50%</p>
+                            <div class="bar"></div>
+                        </div>
+                        <a href="#" class="prod-cta" data-polldaddy-answer-id="${data.answerId}">vote now</a>
+                    </div>`
+    },
+    BOTBGenerator: (data, v) => {
+        const fs = require('fs');
+        fs.mkdirSync(v);
+        let folderName = v;
+        let markup = '';
+        let fileName = v;
+        data.map((val) => {
+            let html = module.exports.BOTBTemplate(val);
+            markup += html;    
+        });
+        fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
+            if (err) throw err;
+        });
+        markup = '';
+        
+    },
     crossPromoTemplate: (data) => {
         return `<a href="${data.url}" class="vites cross-promo-module" ${data.trackingCode} >
         <img class="img-responsive vites-img" src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=100&amp;hei=213" alt="">
