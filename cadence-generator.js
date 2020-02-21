@@ -13,8 +13,10 @@ sheetNames.map((v, i) => {
     let firstWord = v.split(' ')[0].slice(1);
     let restOfWord = v.split(' ').slice(1).join('');
     let functionName = firstLtr.toLowerCase() + firstWord + restOfWord + 'Generator';
+    let genFunction = mod[functionName];
 
-    let genFunction = mod['htmlAdGenerator']; // in general - use mod[functionName]
+    // let genFunction = mod['htmlAdGenerator']; // in general - use mod[functionName]
+    // console.log(functionName);
     console.log(genFunction(data, v));
-
+    
 });
