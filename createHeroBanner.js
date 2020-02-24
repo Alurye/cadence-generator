@@ -880,8 +880,25 @@ module.exports = {
         let markup = '';
         data.map((val,i) => {
             let fileName = val.name;
-            let html = module.exports.dealsDrawerUpperemplate(val);
+            let html = module.exports.dealsDrawerUppertemplate(val);
             let styles = module.exports.dealsDrawerUpperStyles();
+            markup = styles + html;
+            fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
+                if (err) throw err;
+
+            });
+
+        });
+    },
+    dealsDrawerMainGenerator: (data, v) => {
+        const fs = require('fs');
+        fs.mkdirSync(v);
+        let folderName = v;
+        let markup = '';
+        data.map((val,i) => {
+            let fileName = val.name;
+            let html = module.exports.dealsDrawerMainTemplate(val);
+            let styles = module.exports.dealsDrawerMainStyles();
             markup = styles + html;
             fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
                 if (err) throw err;
@@ -2099,7 +2116,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         }
     </style>`
     },
-    dealsDrawerUppertemplate : (data) => {
+    dealsDrawerUppertemplate: (data) => {
         return `<a class="bmsm-d2__link-wrapper" href="${data.url}" tabindex="-1" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}" ${data.trackingCode}>
         <div class="bmsm-d2__image-container">
            <img src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=70" alt="">
@@ -2123,6 +2140,82 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
            </p>
         </div>
      </a>`
-    }
+    },
+    dealsDrawerMainTemplate: (data) => {
+         preHeader = (data) => {
+            if (typeof data.preHeader !== "undefined") {
+                return ` <p class="nav-d1__pre-header">
+                ${data.preHeader}
+             </p>`
+              
+            } else {
+                return '';
+            }
+        }
+            
+         postHeaderText1 = (data) => {
+            if (typeof data.postHeaderText1 !== "undefined") {
+                return `   <p class="nav-d1__post-header nav-d1__post-header-line1">
+                ${data.postHeaderText1}
+                </p>`
+              
+            } else {
+                return '';
+            }
+            
+        }
+        postHeaderText2 = (data) => {
+            if (typeof data.postHeaderText2 !== "undefined") {
+                return `   <p class="nav-d1__post-header nav-d1__post-header-line2">
+                ${data.postHeaderText2}
+                </p>`
+              
+            } else {
+                return '';
+            }
+        }
+        postHeaderText3 = (data) => {
+            if (typeof data.postHeaderText3 !== "undefined") {
+                return `<p class="nav-d1__post-header nav-d1__post-header-line3">
+                ${data.postHeaderText3}
+                </p>`
+              
+            } else {
+                return '';
+            }
+        }
+
+        return `<div class="nav-d1" aria-hidden="false">
+        <a class="nav-d1__link-wrapper"
+            aria-label="${preHeader(data) + data.promotion + postHeaderText1(data) + postHeaderText2(data) + postHeaderText3(data) + data.ctaText}"
+            href="${data.url}" ${data.trackingCode} tabindex="-1">
+            <div class="nav-d1__content">
+                <div class="nav-d1__main-message">
+                    ${preHeader(data)}
+                    <div class="nav-d1__discount-group">
+                        <p class="nav-d1__discount">
+                        ${data.promotion}
+                        </p>
+                      <!-- <div class="nav-d1__perc-group">
+                        <p class="nav-d1__perc-off-line1">%</p>
+                        <p class="nav-d1__perc-off-line2">OFF</p>
+                        </div> -->
+                    </div>
+                    <div class="nav-d1__post-header-group">
+                        ${postHeaderText1(data)}
+                        ${postHeaderText2(data)}
+                        ${postHeaderText3(data)}
+                    </div>
+                        <button class="nav-d1__cta nav-d1__cta--blue"
+                        aria-label="${preHeader(data) + data.promotion + postHeaderText1(data) + postHeaderText2(data) + postHeaderText3(data) + data.ctaText}"
+                            tabindex="0">
+                            ${data.ctaText}
+                        </button>
+                    </div>
+                </div>
+        </a>
+    </div>`
+    },
+
 
 }
