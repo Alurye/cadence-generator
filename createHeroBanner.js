@@ -1746,55 +1746,102 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         <p class="title"><strong>${data.promo}</strong></p>
         <p class="description">${data.brandDescription}</p>
         <p class="cta"><span class="inner-cta">${data.cta}</span></p>
-    </a>`
+    </a>
+    
+<a href="${data.url}" class="${data.className} cross-promo-module" ${data.trackingCode} >
+<div class="cpcm-image-wrapper">
+    <img class="img-responsive ${data.className}-img"
+        src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=100&amp;hei=363" alt="">
+</div>
+<div class="cpcm-content">
+<p class="title"><strong>${data.promo}</strong></p>
+<p class="description">${data.brandDescription}</p>
+</div>
+<p class="cta"><span class="inner-cta">${data.cta}</span></p>
+</a>
+    `
     },
     crossPromoStyles: (data) => {
         return `<style type="text/css">
+        div[bo-if="x.cpcm"],
+        div[bo-if="x.cpcm"] .content-asset,
+        .cpcm-data,
+        .cpcm-data .slugContent {
+            height: 100%;
+        }
+    
         .cross-promo-module * {
-            font-family: corisandelight;
+            font-family: lato, sans-serif;
         }
     
         .cross-promo-module strong {
-            font-family: lato, serif;
-            font-weight: 700;
+            font-family: lato, sans-serif;
+            font-weight: bold;
         }
     
-        .cross-promo-module.${data.className}   {
+        .cross-promo-module.${data.className} {
             display: block;
-            height: 498px !important;
             border: 0;
-            background-color:#E6D482;
+            background-color: ${data.bgColor};
             position: relative;
+            /* max-width: 351.78px; */
+            margin: 0 auto;
+            height: 100%;
         }
     
-        .cross-promo-module.${data.className} > img {
-            max-height: 325px;
-            width: 100%;
+        .cross-promo-module.${data.className} img {
+            /* max-height: 325px;
+            width: 100%; */
+            margin: -7% -15%;
+            max-width: 130%;
+            width: 130%;
+            max-height: inherit;
         }
     
-        .cross-promo-module.${data.className} > .title {
-            text-transform: uppercase;
-            margin-top: 8%;
-            margin: 5% 5% 0% 5%;
+        .cpcm-data .slugContent .cross-promo-module.${data.className} img {
+            margin: -10% -35%;
+            max-width: 170%;
+            width: 170%;
+            max-height: inherit;
+        }
+    
+        .cross-promo-module.${data.className} .cpcm-image-wrapper {
+            overflow: hidden;
+        }
+    
+        .cross-promo-module.${data.className} .title {
+            margin: 5% 5% 0%;
             font-size: 135%;
             color: #012169;
             line-height: 1.1;
         }
     
-        .cross-promo-module.${data.className} > .description {
-            margin-top: 5%;
-            margin: 4% 4% 0 4%;
+        .cross-promo-module.${data.className} .title strong nobr {
+            font-family: Lato, sans-serif;
+            font-weight: bold;
+        }
+    
+        .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+            margin: 10% 0% 0%;
+            font-size: 150%;
+        }
+    
+        .cross-promo-module.${data.className} .description {
+            margin: 4% 4% 0;
             font-size: 1.5rem;
-            font-family: lato, serif;
+            font-family: lato, sans-serif;
             color: #000;
             line-height: 1.6;
         }
     
-        .cross-promo-module.${data.className} > .cta {
-            text-transform: uppercase;
+        .cpcm-data .slugContent .cross-promo-module.${data.className} .description {
+            margin: 4% 11% 0;
+        }
+    
+        .cross-promo-module.${data.className}>.cta {
             font-size: 1.1rem;
             letter-spacing: 1px;
-            color: #07689b;
+            color: #0458ad;
             font-weight: bold;
             display: inline-block;
             position: absolute !important;
@@ -1803,35 +1850,127 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             top: auto;
             width: 100%;
             text-align: center;
+            font-family: lato, sans-serif;
+            font-weight: normal;
         }
     
-        .cross-promo-module.${data.className} > .cta>.inner-cta:after {
-            background: url(/images/plpl2/arrow.png) no-repeat right 1px;
-            padding-right: 10px;
-            content: " ";
-            height: 13px;
-            margin: 1px 0 0 6px;
-            position: absolute;
-            width: 10px;
+        .cross-promo-module.${data.className}:hover >.cta {
+            font-weight: bold;
         }
     
-        .svg-img {
-            width: 16%;
-            position: absolute;
-            top: 2%;
-            left: 2%;
+        .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+            font-size: 1.4rem;
+            bottom: 5%;
+        }
+    
+        @media screen and (max-width: 1400px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+                margin: 10% 4% 0%;
+            }
+        }
+    
+        @media screen and (max-width: 1300px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+                margin-top: 15%;
+            }
+        }
+    
+        @media screen and (max-width: 1300px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+                margin-top: 15%;
+            }
+        }
+    
+        @media screen and (max-width: 1200px) {
+            .cross-promo-module.${data.className} img {
+                margin: -10% -20%;
+                max-width: 140%;
+                width: 140%;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className} img {
+                margin: 0% -35%;
+            }
+        }
+    
+        @media screen and (max-width: 1100px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+                margin-top: 20%;
+            }
+        }
+    
+        @media screen and (max-width: 1024px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
+                margin-top: 23%;
+                font-size: 135%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .description {
+                margin-top: 7%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                bottom: 7%;
+            }
         }
     
         @media screen and (max-width: 1023px) {
-            .cross-promo-module.${data.className}   {
-                height: 488px !important;
+            .cross-promo-module.${data.className} img {
+                margin: -8% 0;
+                max-width: 100%;
+                width: 100%;
+                max-height: inherit;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className} img {
+                margin: -4% 0% -4%;
+                width: 100%;
             }
     
-            .cross-promo-module>.title {
-                margin-top: 6%;
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-image-wrapper {
+                overflow: hidden;
+                float: left;
+                display: inline-block;
+                width: 40%;
             }
     
-            .cross-promo-module.${data.className} > .description {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} {
+                position: relative;
+                display: block;
+                overflow: auto;
+                height: auto;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content {
+                position: absolute !important;
+                top: 50%;
+                transform: translate(0, -50%);
+                margin: 0;
+                right: 20%;
+                left: auto;
+                bottom: auto;
+                width: 40%;
+                text-align: left;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                margin: 0% auto 0 10%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                margin: 5% 20% 0 10%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                position: absolute !important;
+                top: 50%;
+                transform: translate(0, -50%);
+                margin: 0;
+                right: 0;
+                left: auto;
+                bottom: auto;
+                width: 20%;
+            }
+    
+            .cross-promo-module.${data.className} .description {
                 line-height: 1.4;
             }
     
@@ -1840,17 +1979,150 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             }
         }
     
+        @media screen and (max-width: 900px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                font-size: 120%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                font-size: 1.4rem;
+            }
+        }
+    
+        @media screen and (max-width: 768px) {
+            .cross-promo-module.${data.className} img {
+                margin: -8% -10%;
+                max-width: 120%;
+                width: 120%;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                font-size: 100%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                margin: 5% 15% 0 10%;
+                font-size: 80%;
+                line-height: 1.6;
+            }
+        }
+    
+        @media screen and (max-width: 767px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} {
+                margin-bottom: -16px;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                width: 23%;
+            }
+        }
+    
+        @media screen and (max-width: 600px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                font-size: 85%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                font-size: 1.3rem;
+            }
+        }
+    
+        @media screen and (max-width: 500px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                font-size: 80%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                margin: 5% 5% 0 10%;
+                font-size: 70%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                font-size: 1rem;
+            }
+        }
+    
+        @media screen and (max-width: 500px) {
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                font-size: 80%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                font-size: 65%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                font-size: 1rem;
+            }
+        }
+    
+        @media screen and (max-width: 480px) {
+            .cross-promo-module.${data.className} img {
+                margin: -8% -20%;
+                max-width: 140%;
+                width: 140%;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                font-size: .9rem;
+            }
+        }
+    
+        @media screen and (max-width: 375px) {
+            .cross-promo-module.${data.className} img {
+                margin: -8% -30%;
+                max-width: 160%;
+                width: 160%;
+            }
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-image-wrapper {
+                width: 100%;
+                display: inherit;
+                float: inherit;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} img {
+                margin: -8% -15% -8%;
+                width: 130%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content {
+                position: relative !important;
+                transform: inherit;
+                width: 100%;
+                right: auto;
+                text-align: center;
+            }
+    
+            .cross-promo-module.${data.className} .title {
+                margin: 10% 5% 0%;
+                font-size: 105%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .title {
+                margin: 5% 3% 0%;
+                font-size: 120%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className} .cpcm-content .description {
+                margin: 5% 19% 12%;
+                font-size: 90%;
+            }
+    
+            .cpcm-data .slugContent .cross-promo-module.${data.className}>.cta {
+                position: relative !important;
+                margin-bottom: 3%;
+                font-size: 1rem;
+                width: 100%;
+            }
+        }
     
         @media screen and (max-width: 365px) {
             .cross-promo-module {
                 height: 457px;
             }
     
-            .cross-promo-module>.title {
+            .cross-promo-module .title {
                 font-size: 2.1rem;
             }
     
-            .cross-promo-module.${data.className} > .description {
+            .cross-promo-module.${data.className} .description {
                 font-size: 1.3rem;
             }
     
