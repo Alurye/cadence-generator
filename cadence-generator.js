@@ -14,7 +14,7 @@ sheetNames.map((v, i) => {
     let restOfWord = v.split(' ').slice(1).join('');
     let functionName = firstLtr.toLowerCase() + firstWord + restOfWord + 'Generator';
 
-    let genFunction = mod['htmlAdGenerator']; // in general - use mod[functionName]
+    let genFunction = mod['BOTBGenerator']; // in general - use mod[functionName]
     console.log(genFunction(data, v));
 
 });
