@@ -15,8 +15,7 @@ sheetNames.map((v, i) => {
     let functionName = firstLtr.toLowerCase() + firstWord + restOfWord + 'Generator';
     let genFunction = mod[functionName];
 
-    // let genFunction = mod['htmlAdGenerator']; // in general - use mod[functionName]
-    // console.log(functionName);
+     genFunction = mod['crossPromosGenerator']; // in general - use mod[functionName]
     console.log(genFunction(data, v));
     
 });

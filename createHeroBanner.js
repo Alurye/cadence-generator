@@ -4,14 +4,14 @@ module.exports = {
             return ` <p class="hero-banner__pre-header">
             ${data.preHeader}
          </p>`
-          
+
         } else {
             return '';
         }
     },
     badge1: (data) => {
-        if (typeof data.badge1 !== "undefined" && data.badge1 === "yes"){
-        return `<svg class="badge1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        if (typeof data.badge1 !== "undefined" && data.badge1 === "yes") {
+            return `<svg class="badge1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 337.3 213.3" style="enable-background:new 0 0 337.3 213.3;" xml:space="preserve">
    <style type="text/css">
        .st0{fill:none;stroke:#FFFFFF;stroke-width:3.71;stroke-linecap:round;stroke-linejoin:round;}
@@ -159,13 +159,13 @@ module.exports = {
            />
    </g>
    </svg>`
-            } else {
-                return '';
-            }
+        } else {
+            return '';
+        }
     },
     badge2: (data) => {
-        if (typeof data.badge2 !== "undefined" && data.badge2 === "yes"){
-        return `<svg class="badge2 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        if (typeof data.badge2 !== "undefined" && data.badge2 === "yes") {
+            return `<svg class="badge2 version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="0 0 180 180" style="enable-background:new 0 0 180 180;" xml:space="preserve">
         <style type="text/css">
             .st0{fill:#FFFFFF;}
@@ -275,26 +275,26 @@ module.exports = {
                 L157.8,170.9z"/>
         </g>
         </svg>`
-            } else {
-                return '';
-            }
+        } else {
+            return '';
+        }
     },
     promotionText: (data) => {
         if (typeof data.promotion !== "undefined") {
             return `  <p class="hero-banner__bmsm">
             ${data.promotion}
         </p>`
-          
+
         } else {
             return '';
         }
-    }, 
+    },
     brandDescriptionText: (data) => {
         if (typeof data.brandDescription !== "undefined") {
             return `<p class="hero-banner__post-header-line-1">
             ${data.brandDescription}
           </p>`
-          
+
         } else {
             return '';
         }
@@ -304,23 +304,23 @@ module.exports = {
             return `<p class="hero-banner__post-header-line-2">
             ${data.postHeaderText2}
           </p>`
-          
+
         } else {
             return '';
-        }  
-      },
-      postHeaderText3: (data) => {
+        }
+    },
+    postHeaderText3: (data) => {
         if (typeof data.postHeaderText3 !== "undefined") {
             return `<p class="hero-banner__post-header-line-3">
                            ${data.postHeaderText3}
                         </p>`
-          
+
         } else {
             return '';
-        }  
-      
-      },
-      heroImage: (data) => {
+        }
+
+    },
+    heroImage: (data) => {
         return `<picture>
         <source srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=360&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0" media="(max-width: 360px)">
         <source srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=470&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0" media="(max-width: 470px)">
@@ -878,7 +878,7 @@ module.exports = {
         fs.mkdirSync(v);
         let folderName = v;
         let markup = '';
-        data.map((val,i) => {
+        data.map((val, i) => {
             let fileName = val.name;
             let html = module.exports.dealsDrawerUppertemplate(val);
             let styles = module.exports.dealsDrawerUpperStyles();
@@ -891,15 +891,16 @@ module.exports = {
         });
     },
     dealsDrawerMainGenerator: (data, v) => {
+        console.log('hit');
         const fs = require('fs');
         fs.mkdirSync(v);
         let folderName = v;
         let markup = '';
-        data.map((val,i) => {
+        data.map((val, i) => {
             let fileName = val.name;
             let html = module.exports.dealsDrawerMainTemplate(val);
-            let styles = module.exports.dealsDrawerMainStyles();
-            markup = styles + html;
+            // let styles = module.exports.dealsDrawerMainStyles();
+            markup = html;
             fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
                 if (err) throw err;
 
@@ -950,7 +951,7 @@ module.exports = {
         fs.mkdirSync(v);
         let folderName = v;
         let markup = '';
-        data.map((val,i) => {
+        data.map((val, i) => {
             let fileName = val.name;
             let html = module.exports.fpsTemplate(val);
             markup += html;
@@ -959,13 +960,13 @@ module.exports = {
                 console.log(markup);
                 fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
                     if (err) throw err;
-        
+
                 });
                 markup = '';
             }
-           
+
         });
-        
+
     },
     fpsTemplate: (data, i) => {
         return `<div class="featured-product" style="margin-bottom:25px; text-align:left;">
@@ -1609,10 +1610,10 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
     </div>`
     },
     htmlAdImage: (data) => {
-        return  `<img src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}">`
+        return `<img src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}">`
     },
     htmlAdCTA: (data) => {
-        return  `<div class="ad-button">
+        return `<div class="ad-button">
                     ${data.ctaText}
                 </div>`
     },
@@ -1646,20 +1647,20 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
     htmlAdsGenerator: (data, v) => {
         const fs = require('fs');
 
-            if (!fs.existsSync(v)) {
-                fs.mkdirSync(v);
-            } else {
-                return false;
-            }
-        
+        if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v,
-        markup = '',
-        styles = module.exports.htmlAdGeneralStyles();
+            markup = '',
+            styles = module.exports.htmlAdGeneralStyles();
         data.map((val) => {
-            let fileName = val.name, 
-            layoutWidth = val.width,
-            layoutHeight = val.height,
-            extraStyles = '';
+            let fileName = val.name,
+                layoutWidth = val.width,
+                layoutHeight = val.height,
+                extraStyles = '';
 
             if (layoutWidth === 160 && layoutHeight === 600) {
                 extraStyles = module.exports.htmlAd160x600Styles();
@@ -1730,25 +1731,52 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             let fileName = val.name;
             let styles = module.exports.crossPromoStyles(val);
             let html = module.exports.crossPromoTemplate(val);
-      
+
             html = styles + '\n' + html;
-         
+
             fs.writeFile(`./${folderName}/${fileName}.html`, html, function (err) {
                 if (err) throw err;
 
             });
-           
+
         });
     },
+    BOTBTemplate: (data) => {
+        return `<div class="product ${data.class}" data-polldaddy-id="${data.pollId}">
+                        <a href="${data.url}">
+                            <img class="prod-img"
+                                src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.sku}_01?$OP_JPG$&amp;qlt=75">
+                        </a>
+                        <p class="brand-name">${data.brand}</p>
+                        <a href="${data.url}">
+                            <p class="product-container-name">${data.name}</p>
+                        </a>
+                        <p class="prod-flavor">${data.flavor}</p>
+                        <div class="status-bar-wrapper">
+                            <p class="perc">50%</p>
+                            <div class="bar"></div>
+                        </div>
+                        <a href="#" class="prod-cta" data-polldaddy-answer-id="${data.answerId}">vote now</a>
+                    </div>`
+    },
+    BOTBGenerator: (data, v) => {
+        const fs = require('fs');
+        fs.mkdirSync(v);
+        let folderName = v;
+        let markup = '';
+        let fileName = v;
+        data.map((val) => {
+            let html = module.exports.BOTBTemplate(val);
+            markup += html;
+        });
+        fs.writeFile(`./${folderName}/${fileName}.html`, markup, function (err) {
+            if (err) throw err;
+        });
+        markup = '';
+
+    },
     crossPromoTemplate: (data) => {
-        return `<a href="${data.url}" class="vites cross-promo-module" ${data.trackingCode} >
-        <img class="img-responsive vites-img" src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=100&amp;hei=213" alt="">
-        <p class="title"><strong>${data.promo}</strong></p>
-        <p class="description">${data.brandDescription}</p>
-        <p class="cta"><span class="inner-cta">${data.cta}</span></p>
-    </a>
-    
-<a href="${data.url}" class="${data.className} cross-promo-module" ${data.trackingCode} >
+        return `<a href="${data.url}" class="${data.className} cross-promo-module" ${data.trackingCode} >
 <div class="cpcm-image-wrapper">
     <img class="img-responsive ${data.className}-img"
         src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=100&amp;hei=363" alt="">
@@ -1758,8 +1786,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
 <p class="description">${data.brandDescription}</p>
 </div>
 <p class="cta"><span class="inner-cta">${data.cta}</span></p>
-</a>
-    `
+</a> `
     },
     crossPromoStyles: (data) => {
         return `<style type="text/css">
@@ -2132,316 +2159,728 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         }
     </style>`
     },
-    dealsDrawerUpperStyles: () => {
-        return `<style class="ng-scope">
-        /* STYLES BELOW ARE FOR BLOG HEADER FIX */
-    
-        .deals .dealColTwo p {
-            line-height: 1.42857;
-        }
-    
-        .deals .dealColTwo button,
-        .deals .dealColTwo a {
-            box-shadow: none;
-        }
-    
-        .deals .dealColTwo button:hover,
-        .deals .dealColTwo a:hover {
-            box-shadow: none;
-        }
-    
-        .site-wrapper .bmsm-d2__content-wrapper:focus,
-        .content-asset .bmsm-d2__content-wrapper:focus {
-            outline: 0.1em dashed #012169;
-        }
-    
-        .site-wrapper .bmsm-d2,
-        .content-asset .bmsm-d2 {
-            min-height: 216px;
-            max-width: 492px;
-            background-size: 100% 100%;
-            padding: 30px 20px 25px 20px;
-            position: relative;
-            font-family: lato, sans-serif;
-        }
-    
-        .site-wrapper .bmsm-d2 .mobile-only,
-        .site-wrapper .bmsm-d2 .mobile-only-inline,
-        .content-asset .bmsm-d2 .mobile-only,
-        .content-asset .bmsm-d2 .mobile-only-inline {
-            display: none !important;
-        }
-    
-        .site-wrapper .bmsm-d2 strong,
-        .content-asset .bmsm-d2 strong {
-            font-family: lato, sans-serif;
-            font-weight: bold;
-        }
-    
-        .site-wrapper .bmsm-d2 p,
-        .content-asset .bmsm-d2 p {
-            color: #012169;
-        }
-    
-        .site-wrapper .bmsm-d2 sup,
-        .content-asset .bmsm-d2 sup {
-            font-size: 8px;
-        }
-    
-        .site-wrapper .bmsm-d2__content-wrapper,
-        .content-asset .bmsm-d2__content-wrapper {
-            float: left;
-            width: 100%;
-        }
-    
-        .site-wrapper .bmsm-d2__tag,
-        .content-asset .bmsm-d2__tag {
-            left: -12px;
-            margin-top: 17px;
-            color: white;
-            position: absolute;
-            min-width: 47px;
-            height: 17.5px;
-            transform: rotate(90deg);
-            transform-origin: right top;
-            display: block;
-            text-transform: uppercase;
-            padding: 2px 12px;
-            font-size: 10px;
-            font-family: lato, sans-serif;
-            font-weight: bold;
-        }
-    
-        .site-wrapper .bmsm-d2__content,
-        .content-asset .bmsm-d2__content {
-            text-align: left;
-            width: 60.3333%;
-            float: left;
-            padding-left: 29px;
-        }
-    
-        .site-wrapper .bmsm-d2__content .bmsm-d2__post-header-group,
-        .content-asset .bmsm-d2__content .bmsm-d2__post-header-group {
-            text-transform: initial;
-        }
-    
-        .site-wrapper .grenade .bmsm-d2__top,
-        .content-asset .grenade .bmsm-d2__top {
-            font-family: lato, sans-serif;
-            font-weight: bold;
-            color: #012169;
-            margin-top: 4%;
-            font-size: 15px;
-        }
-    
-        .site-wrapper .bmsm-d2__main-message,
-        .content-asset .bmsm-d2__main-message {
-            display: -webkit-box;
-            display: -moz-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            flex-wrap: nowrap;
-        }
-    
-        .site-wrapper .bmsm-d2__cta,
-        .content-asset .bmsm-d2__cta {
-            color: #fff !important;
-            padding: 5px 30px;
-            margin-top: 4px;
-            font-family: lato, sans-serif;
-            font-weight: bold;
-            font-size: 12px;
-            border-radius: 5px;
-            text-transform: uppercase;
-            white-space: nowrap;
-            display: inline-block;
-        }
-    
-        .site-wrapper .bmsm-d2__cta:hover,
-        .site-wrapper .bmsm-d2__cta:focus,
-        .content-asset .bmsm-d2__cta:hover,
-        .content-asset .bmsm-d2__cta:focus {
-            text-decoration: none;
-        }
-    
-        .site-wrapper .bmsm-d2__cta--blue,
-        .content-asset .bmsm-d2__cta--blue {
-            background-color: #0076b4;
-        }
-    
-        .site-wrapper .bmsm-d2__cta--blue:hover,
-        .site-wrapper .bmsm-d2__cta--blue:focus,
-        .content-asset .bmsm-d2__cta--blue:hover,
-        .content-asset .bmsm-d2__cta--blue:focus {
-            background-color: #07689b;
-            color: white;
-        }
-    
-        .site-wrapper .bmsm-d2__cta-carrot,
-        .site-wrapper .bmsm-d2__cta-carrot {
-            color: #0076b4 !important;
-        }
-    
-        .site-wrapper .bmsm-d2__image-container,
-        .content-asset .bmsm-d2__image-container {
-            width: 38.66667%;
-            float: left;
-            text-align: center;
-            margin-left: 0;
-        }
-    
-        .site-wrapper .bmsm-d2__image-container img,
-        .content-asset .bmsm-d2__image-container img {
-            max-width: 82%;
-        }
-    
-        .site-wrapper .bmsm-d2__callout,
-        .content-asset .bmsm-d2__callout {
-            font-family: lato, sans-serif;
-            font-weight: bold;
-            font-size: 13px;
-        }
-    
-        .site-wrapper .bmsm-d2__pre-header,
-        .content-asset .bmsm-d2__pre-header {
-            font-family: lato, sans-serif;
-            font-weight: bold;
-            font-size: 30px;
-            margin-right: 2%;
-        }
-    
-        .site-wrapper .bmsm-d2__post-header,
-        .content-asset .bmsm-d2__post-header {
-            font-family: lato, sans-serif;
-            font-size: 15px;
-            margin-top: 3%;
-            color: #666 !important;
-            line-height: 19px !important;
-        }
-    
-        .site-wrapper .bmsm-d2__post-header-line1,
-        .content-asset .bmsm-d2__post-header-line1 {
-            margin-top: 3%;
-            font-size: 16px;
-        }
-    
-        .site-wrapper .bmsm-d2__post-header-line1 br,
-        .content-asset .bmsm-d2__post-header-line1 br {
-            display: block;
-        }
-    
-        .site-wrapper .bmsm-d2__post-header-bold,
-        .content-asset .bmsm-d2__post-header-bold {
-            color: #01aef2;
-            font-family: lato, sans-serif;
-            font-weight: bold;
-        }
-    
-        .site-wrapper .bmsm-d2__disclaimer,
-        .content-asset .bmsm-d2__disclaimer {
-            font-family: lato, sans-serif;
-            font-size: 16px;
-            color: #666 !important;
-            margin-top: 6%;
-            margin-bottom: 5%;
-        }
-    
-        .site-wrapper .bmsm-d2,
-        .content-asset .bmsm-d2 {
-            background-color: #fff;
-        }
-    
-        .site-wrapper .bmsm-d2__header-v1,
-        .content-asset .bmsm-d2__header-v1 {
-            font-family: lato, sans-serif;
-            font-weight: bold;
-            font-size: 28px;
-            line-height: 22px;
-            margin-top: 1%;
-        }
-    
-        .site-wrapper .bmsm-d2__header-v1 span,
-        .content-asset .bmsm-d2__header-v1 span {
-            font-family: lato, sans-serif;
-        }
-    
-        .site-wrapper .bmsm-d2__callout-line1,
-        .content-asset .bmsm-d2__callout-line1 {
-            margin-bottom: -3px;
-        }
-    
-        .site-wrapper .bmsm-d2__preheader-v1,
-        .content-asset .bmsm-d2__preheader-v1 {
-            margin-top: 3px;
-            font-size: 18px;
-            text-transform: uppercase;
-            margin-bottom: -14px;
-        }
-    
-        @media screen and (max-width: 1230px) {
-    
+     dealsDrawerUppertemplate: (data) => {
+        styles = () => {
+            return `<style class="ng-scope">
+            /* STYLES BELOW ARE FOR BLOG HEADER FIX */
+        
+            .deals .dealColTwo p {
+                line-height: 1.42857;
+            }
+        
+            .deals .dealColTwo button,
+            .deals .dealColTwo a {
+                box-shadow: none;
+            }
+        
+            .deals .dealColTwo button:hover,
+            .deals .dealColTwo a:hover {
+                box-shadow: none;
+            }
+        
+            .site-wrapper .bmsm-d2__content-wrapper:focus,
+            .content-asset .bmsm-d2__content-wrapper:focus {
+                outline: 0.1em dashed #012169;
+            }
+        
+            .site-wrapper .bmsm-d2,
+            .content-asset .bmsm-d2 {
+                min-height: 216px;
+                max-width: 492px;
+                background-size: 100% 100%;
+                padding: 30px 20px 25px 20px;
+                position: relative;
+                font-family: lato, sans-serif;
+            }
+        
+            .site-wrapper .bmsm-d2 .mobile-only,
+            .site-wrapper .bmsm-d2 .mobile-only-inline,
+            .content-asset .bmsm-d2 .mobile-only,
+            .content-asset .bmsm-d2 .mobile-only-inline {
+                display: none !important;
+            }
+        
+            .site-wrapper .bmsm-d2 strong,
+            .content-asset .bmsm-d2 strong {
+                font-family: lato, sans-serif;
+                font-weight: bold;
+            }
+        
+            .site-wrapper .bmsm-d2 p,
+            .content-asset .bmsm-d2 p {
+                color: #012169;
+            }
+        
+            .site-wrapper .bmsm-d2 sup,
+            .content-asset .bmsm-d2 sup {
+                font-size: 8px;
+            }
+        
+            .site-wrapper .bmsm-d2__content-wrapper,
+            .content-asset .bmsm-d2__content-wrapper {
+                float: left;
+                width: 100%;
+            }
+        
+            .site-wrapper .bmsm-d2__tag,
+            .content-asset .bmsm-d2__tag {
+                left: -12px;
+                margin-top: 17px;
+                color: white;
+                position: absolute;
+                min-width: 47px;
+                height: 17.5px;
+                transform: rotate(90deg);
+                transform-origin: right top;
+                display: block;
+                text-transform: uppercase;
+                padding: 2px 12px;
+                font-size: 10px;
+                font-family: lato, sans-serif;
+                font-weight: bold;
+            }
+        
+            .site-wrapper .bmsm-d2__content,
+            .content-asset .bmsm-d2__content {
+                text-align: left;
+                width: 60.3333%;
+                float: left;
+                padding-left: 29px;
+            }
+        
+            .site-wrapper .bmsm-d2__content .bmsm-d2__post-header-group,
+            .content-asset .bmsm-d2__content .bmsm-d2__post-header-group {
+                text-transform: initial;
+            }
+        
+            .site-wrapper .grenade .bmsm-d2__top,
+            .content-asset .grenade .bmsm-d2__top {
+                font-family: lato, sans-serif;
+                font-weight: bold;
+                color: #012169;
+                margin-top: 4%;
+                font-size: 15px;
+            }
+        
+            .site-wrapper .bmsm-d2__main-message,
+            .content-asset .bmsm-d2__main-message {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-wrap: nowrap;
+            }
+        
+            .site-wrapper .bmsm-d2__cta,
+            .content-asset .bmsm-d2__cta {
+                color: #fff !important;
+                padding: 5px 30px;
+                margin-top: 4px;
+                font-family: lato, sans-serif;
+                font-weight: bold;
+                font-size: 12px;
+                border-radius: 5px;
+                text-transform: uppercase;
+                white-space: nowrap;
+                display: inline-block;
+            }
+        
+            .site-wrapper .bmsm-d2__cta:hover,
+            .site-wrapper .bmsm-d2__cta:focus,
+            .content-asset .bmsm-d2__cta:hover,
+            .content-asset .bmsm-d2__cta:focus {
+                text-decoration: none;
+            }
+        
+            .site-wrapper .bmsm-d2__cta--blue,
+            .content-asset .bmsm-d2__cta--blue {
+                background-color: #0076b4;
+            }
+        
+            .site-wrapper .bmsm-d2__cta--blue:hover,
+            .site-wrapper .bmsm-d2__cta--blue:focus,
+            .content-asset .bmsm-d2__cta--blue:hover,
+            .content-asset .bmsm-d2__cta--blue:focus {
+                background-color: #07689b;
+                color: white;
+            }
+        
+            .site-wrapper .bmsm-d2__cta-carrot,
+            .site-wrapper .bmsm-d2__cta-carrot {
+                color: #0076b4 !important;
+            }
+        
+            .site-wrapper .bmsm-d2__image-container,
+            .content-asset .bmsm-d2__image-container {
+                width: 38.66667%;
+                float: left;
+                text-align: center;
+                margin-left: 0;
+            }
+        
+            .site-wrapper .bmsm-d2__image-container img,
+            .content-asset .bmsm-d2__image-container img {
+                max-width: 82%;
+            }
+        
+            .site-wrapper .bmsm-d2__callout,
+            .content-asset .bmsm-d2__callout {
+                font-family: lato, sans-serif;
+                font-weight: bold;
+                font-size: 13px;
+            }
+        
+            .site-wrapper .bmsm-d2__pre-header,
+            .content-asset .bmsm-d2__pre-header {
+                font-family: lato, sans-serif;
+                font-weight: bold;
+                font-size: 30px;
+                margin-right: 2%;
+            }
+        
+            .site-wrapper .bmsm-d2__post-header,
+            .content-asset .bmsm-d2__post-header {
+                font-family: lato, sans-serif;
+                font-size: 15px;
+                margin-top: 3%;
+                color: #666 !important;
+                line-height: 19px !important;
+            }
+        
+            .site-wrapper .bmsm-d2__post-header-line1,
+            .content-asset .bmsm-d2__post-header-line1 {
+                margin-top: 3%;
+                font-size: 16px;
+            }
+        
+            .site-wrapper .bmsm-d2__post-header-line1 br,
+            .content-asset .bmsm-d2__post-header-line1 br {
+                display: block;
+            }
+        
+            .site-wrapper .bmsm-d2__post-header-bold,
+            .content-asset .bmsm-d2__post-header-bold {
+                color: #01aef2;
+                font-family: lato, sans-serif;
+                font-weight: bold;
+            }
+        
+            .site-wrapper .bmsm-d2__disclaimer,
+            .content-asset .bmsm-d2__disclaimer {
+                font-family: lato, sans-serif;
+                font-size: 16px;
+                color: #666 !important;
+                margin-top: 6%;
+                margin-bottom: 5%;
+            }
+        
+            .site-wrapper .bmsm-d2,
+            .content-asset .bmsm-d2 {
+                background-color: #fff;
+            }
+        
+            .site-wrapper .bmsm-d2__header-v1,
+            .content-asset .bmsm-d2__header-v1 {
+                font-family: lato, sans-serif;
+                font-weight: bold;
+                font-size: 28px;
+                line-height: 22px;
+                margin-top: 1%;
+            }
+        
+            .site-wrapper .bmsm-d2__header-v1 span,
+            .content-asset .bmsm-d2__header-v1 span {
+                font-family: lato, sans-serif;
+            }
+        
+            .site-wrapper .bmsm-d2__callout-line1,
+            .content-asset .bmsm-d2__callout-line1 {
+                margin-bottom: -3px;
+            }
+        
             .site-wrapper .bmsm-d2__preheader-v1,
             .content-asset .bmsm-d2__preheader-v1 {
+                margin-top: 3px;
                 font-size: 18px;
+                text-transform: uppercase;
+                margin-bottom: -14px;
             }
+        
+            @media screen and (max-width: 1230px) {
+        
+                .site-wrapper .bmsm-d2__preheader-v1,
+                .content-asset .bmsm-d2__preheader-v1 {
+                    font-size: 18px;
+                }
+            }
+        </style>`
+        } 
+        
+        html = (data) => {
+            return `<a class="bmsm-d2__link-wrapper" href="${data.url}" tabindex="-1" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}" ${data.trackingCode}>
+            <div class="bmsm-d2__image-container">
+               <img src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=70" alt="">
+            </div>
+            <div class="bmsm-d2__content">
+               <div class="bmsm-d2__top bmsms-d2__percent">
+                 ${data.preHeader}
+               </div>
+               <div class="bmsm-d2__main-message bmsm-d2__main-message-v1">
+                  <p class="bmsm-d2__header bmsm-d2__header-v1">
+                   ${data.promotion}
+                  </p>
+               </div>
+               <div class="bmsm-d2__post-header-group">
+                  <p class="bmsm-d2__post-header bmsm-d2__post-header-line1">
+               ${data.brandDescription}
+                  </p>
+               </div>
+               <p class="bmsm-d2__cta bmsm-d2__cta--blue" tabindex="0" role="link" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}">
+                  ${data.ctaText}
+               </p>
+            </div>
+         </a>`
         }
-    </style>`
-    },
-    dealsDrawerUppertemplate: (data) => {
-        return `<a class="bmsm-d2__link-wrapper" href="${data.url}" tabindex="-1" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}" ${data.trackingCode}>
-        <div class="bmsm-d2__image-container">
-           <img src="//s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?$OP_JPG$&amp;qlt=70" alt="">
-        </div>
-        <div class="bmsm-d2__content">
-           <div class="bmsm-d2__top bmsms-d2__percent">
-             ${data.preHeader}
-           </div>
-           <div class="bmsm-d2__main-message bmsm-d2__main-message-v1">
-              <p class="bmsm-d2__header bmsm-d2__header-v1">
-               ${data.promotion}
-              </p>
-           </div>
-           <div class="bmsm-d2__post-header-group">
-              <p class="bmsm-d2__post-header bmsm-d2__post-header-line1">
-           ${data.brandDescription}
-              </p>
-           </div>
-           <p class="bmsm-d2__cta bmsm-d2__cta--blue" tabindex="0" role="link" aria-label="${data.preHeader + data.promotion + data.brandDescription + data.ctaText}">
-              ${data.ctaText}
-           </p>
-        </div>
-     </a>`
+
+        return styles(data) + html(data);
     },
     dealsDrawerMainTemplate: (data) => {
-         preHeader = (data) => {
+
+        styles = (data) => {
+            return `<style type="text/css">
+            /* STYLES BELOW ARE FOR BLOG HEADER FIX */
+            .deals .dealColTwo p {
+                line-height: 1.42857;
+            }
+        
+            .deals .dealColTwo button,
+            .deals .dealColTwo a {
+                box-shadow: none;
+            }
+        
+            .deals .dealColTwo button:hover,
+            .deals .dealColTwo a:hover {
+                box-shadow: none;
+            }
+        
+            .site-wrapper .nav-d1,
+            .content-asset .nav-d1 {
+                font-family: lato, serif;
+            }
+        
+            .site-wrapper .nav-d1:focus,
+            .content-asset .nav-d1:focus {
+                margin-right: 1px;
+                outline: 0.1em dashed #012169;
+            }
+        
+        
+            .nav-d1 a.nav-d1__link-wrapper {
+                display: block;
+            }
+        
+            .site-wrapper .nav-d1 .mobile-only,
+            .site-wrapper .nav-d1 .mobile-only-inline,
+            .content-asset .nav-d1 .mobile-only,
+            .content-asset .nav-d1 .mobile-only-inline {
+                display: none !important;
+            }
+        
+            .site-wrapper .nav-d1 strong,
+            .content-asset .nav-d1 strong {
+                font-family: lato, serif;
+                font-weight: 700 !important;
+            }
+        
+            .site-wrapper .nav-d1 p,
+            .content-asset .nav-d1 p {
+                line-height: 1.3;
+                color: #012169;
+                font-family: lato, serif;
+            }
+        
+            .nav-d1 .promo-text {
+                font-size: 21px;
+            }
+        
+            .nav-d1 .promo-text-2 {
+                font-size: 18px;
+                width: 70%;
+                margin: 4% auto;
+                line-height: 1.3 !important;
+            }
+        
+        
+            .nav-d1 .promo-text-2 span {
+                color: #0076b4;
+            }
+        
+            .nav-d1 .promo-text-2 br {
+                display: block !important;
+            }
+        
+        
+        
+            /* .site-wrapper .nav-d1 sup {
+                font-size: 56%; } */
+            .site-wrapper .nav-d1__content,
+            .content-asset .nav-d1__content {
+                text-align: center;
+                background-image: url('https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=452&hei=432&fmt=pjpeg&pscan=auto&qlt=80,0&op_sharpen=0&resMode=sharp2&op_usm=1.75,0.3,2,0&iccEmbed=0');
+                background-repeat: no-repeat;
+                min-height: 431px;
+                max-width: 491px;
+                padding: 5% 20px 20px;
+                background-position: 50%;
+                background-size: 100% 100%;
+            }
+        
+            .site-wrapper .nav-d1__cta,
+            .content-asset .nav-d1__cta {
+                text-decoration: none;
+                font-size: 12px;
+                text-transform: uppercase;
+                display: block;
+                width: 190px;
+                color: #0076b4;
+                margin: auto;
+                text-align: center;
+                font-family: lato, serif;
+                font-weight: 700;
+                border-radius: 5px;
+                margin-top: 0%;
+            }
+        
+            .site-wrapper .nav-d1__cta:hover,
+            .site-wrapper .nav-d1__cta:focus,
+            .content-asset .nav-d1__cta:hover,
+            .content-asset .nav-d1__cta:focus {
+                text-decoration: none;
+            }
+        
+            .site-wrapper .nav-d1__cta--blue,
+            .content-asset .nav-d1__cta--blue {
+                color: white;
+                background-color: #BF0830;
+                margin-top: 7%;
+                padding: 10px !important;
+            }
+        
+            .site-wrapper .nav-d1__cta--blue:hover,
+            .site-wrapper .nav-d1__cta--blue:focus,
+            .content-asset .nav-d1__cta--blue:hover,
+            .content-asset .nav-d1__cta--blue:focus {
+                color: white !important;
+                background-color: #BF0830 !important;
+            }
+        
+            .site-wrapper .nav-d1__callout,
+            .content-asset .nav-d1__callout {
+                font-family: lato, serif;
+                font-weight: 700;
+                font-size: 18px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+        
+            .site-wrapper .nav-d1__pre-header,
+            .content-asset .nav-d1__pre-header {
+                font-family: lato, serif;
+                font-weight: 700;
+                font-size: 55.5px;
+                color: #0076b4;
+                margin-bottom: 0%;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1__main-message,
+            .content-asset .nav-d1__main-message {
+                text-transform: initial;
+                width: 60%;
+                margin: 19% auto auto auto;
+            }
+        
+        
+            .site-wrapper .twentyoff_100 .nav-d1__top,
+            .content-asset .nav-d1__top {
+                text-transform: uppercase;
+                font-family: lato, serif;
+                font-weight: 700;
+                color: #fff;
+                font-size: 27px;
+                margin-bottom: 0.5%;
+            }
+        
+            .site-wrapper .nav-d1__discount-group,
+            .content-asset .nav-d1__discount-group {
+                padding: 0% 0%;
+            }
+        
+            .site-wrapper .nav-d1__discount,
+            .site-wrapper .nav-d1__perc-off-line1,
+            .site-wrapper .nav-d1__perc-off-line2,
+            .content-asset .nav-d1__discount,
+            .content-asset .nav-d1__perc-off-line1,
+            .content-asset .nav-d1__perc-off-line2 {
+                font-family: lato, serif;
+                font-weight: 700;
+            }
+        
+            .site-wrapper .nav-d1__discount {
+                font-size: 50px;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1__discount,
+            .content-asset .nav-d1__discount {
+                font-size: 19px;
+                line-height: 90% !important;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1-topline2 {
+        
+                line-height: 1;
+                font-size: 30px;
+                position: absolute;
+                left: 209px;
+                top: 156px;
+                font-family: lato, serif;
+                font-weight: 700;
+                color: #0E1C64;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1-topline1 {
+                color: #012169;
+                line-height: 1;
+                font-size: 18.5px;
+                text-align: center;
+                font-family: lato, serif;
+                font-weight: 700;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1-topline3 {
+                color: #fff;
+                line-height: 1;
+                font-size: 18.5px;
+                margin: 0 auto;
+                font-family: lato, serif;
+                font-weight: 700;
+                margin-bottom: -27px;
+                margin-top: 20px;
+            }
+        
+            .site-wrapper .nav-d1__perc-group,
+            .content-asset .nav-d1__perc-group {
+                float: left;
+                margin-top: -5%
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1__perc-off-line1,
+            .content-asset .nav-d1__perc-off-line1 {
+                font-size: 72px;
+                color: #012169;
+                margin-top: -3%;
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1__perc-off-line2,
+            .content-asset .nav-d1__perc-off-line2 {
+                color: #012169;
+                margin-top: 10%;
+                font-size: 35px;
+            }
+        
+            .site-wrapper .nav-d1__post-header-group,
+            .content-asset .nav-d1__post-header-group {
+                padding-top: 0%;
+                padding-left: 42%;
+            }
+        
+            .site-wrapper .nav-d1__post-header,
+            .content-asset .nav-d1__post-header {
+                font-family: lato, serif;
+                font-weight: 700;
+                font-size: 36px;
+                margin-top: 5px;
+            }
+        
+        
+            .site-wrapper .nav-d1__main-message .nav-d1__disclaimer {
+                font-family: lato, serif;
+                font-weight: 700;
+                font-size: 17px;
+                border-top: 1.2px solid #012169;
+                border-bottom: 1.2px solid #012169;
+                display: inline-block;
+                line-height: 1;
+                padding-bottom: 3px;
+                letter-spacing: 1px;
+                margin-top: 3%;
+                padding-top: 3px;
+            }
+        
+            .site-wrapper .nav-d1,
+            .content-asset .nav-d1 {
+                text-align: center;
+                padding: 0;
+            }
+        
+            .site-wrapper .nav-d1__header,
+            .content-asset .nav-d1__header {
+                font-family: lato, serif;
+                font-size: 25px;
+            }
+        
+            .site-wrapper .nav-d1__header span,
+            .content-asset .nav-d1__header span {
+                font-family: lato, serif;
+            }
+        
+            @media screen and (max-width: 1200) {
+        
+                .site-wrapper .nav-d1__content,
+                .content-asset .nav-d1__content {
+                    padding-top: 23%;
+                }
+            }
+        
+            @media screen and (max-width: 1050px) {
+        
+                .site-wrapper .twentyoff_100 .nav-d1__main-message,
+                .content-asset .nav-d1__main-message {
+                    width: 80%;
+                    margin: 29% auto auto auto;
+                }
+        
+                .site-wrapper .nav-d1__header,
+                .content-asset .nav-d1__header {
+                    font-size: 25px;
+                    font-family: lato, serif;
+                }
+        
+                .site-wrapper .nav-d1__pre-header,
+                .content-asset .nav-d1__pre-header {
+                    margin-bottom: 0%;
+                    font-size: 45.5px;
+                }
+        
+                .site-wrapper .twentyoff_100 .nav-d1__discount,
+                .content-asset .nav-d1__discount {
+                    line-height: 90% !important;
+                    font-size: 14px;
+                    line-height: 90% !important;
+                    margin-top: 3%;
+                }
+        
+                .nav-d1 .promo-text {
+                    font-size: 15px;
+                }
+        
+                .nav-d1 .promo-text-2 {
+                    font-size: 18px;
+                    width: 78%;
+                }
+        
+                .nav-d1 .promo-text-2 span {
+                    color: #0076b4;
+                }
+        
+                .site-wrapper .nav-d1__post-header-group,
+                .content-asset .nav-d1__post-header-group {
+                    padding-top: 5%;
+                }
+        
+        
+                .site-wrapper .nav-d1__discount-group,
+                .content-asset .nav-d1__discount-group {
+                    padding: 0% 0%;
+        
+                }
+        
+                .site-wrapper .nav-d1__post-header,
+                .content-asset .nav-d1__post-header {
+                    font-size: 31px;
+                    margin-top: 0px;
+                }
+        
+            }
+        
+            .site-wrapper .twentyoff_100 .nav-d1__post-header-line1 span,
+            .content-asset .nav-d1__post-header-line1 span {
+                font-family: lato, serif;
+                font-weight: 700;
+            }
+        
+            .site-wrapper .nav-d1__post-header-line2,
+            .content-asset .nav-d1__post-header-line2 {
+                font-family: lato, serif;
+                font-size: 19.4px;
+                border-top: 2px solid #012169;
+                margin-top: 5%;
+                line-height: 1.2 !important;
+                border-bottom: 2px solid #012169;
+                display: inline-block;
+                padding: 3px 0px;
+                font-weight: bold;
+                letter-spacing: 1px;
+        
+            }
+        
+            .site-wrapper .nav-d1__post-header-line2 span,
+            .content-asset .nav-d1__post-header-line2 span {
+                color: #008834 !important;
+            }
+        
+            .site-wrapper .nav-d1__post-header-line3,
+            .content-asset .nav-d1__post-header-line3 {
+                font-size: 18px;
+            }
+        
+            .site-wrapper .nav-d1__post-header-line3,
+            .content-asset .nav-d1__post-header-line3 span {
+                color: #0076b4;
+                display: inline-block;
+                line-height: 1;
+            }
+        
+            .site-wrapper .nav-d1__post-header-reg,
+            .content-asset .nav-d1__post-header-reg {
+                font-family: lato, serif;
+            }
+        
+            .nav-d1 .bopus-svg {
+                width: 12%;
+            }
+        </style>
+        `
+        }
+
+        preHeader = (data) => {
             if (typeof data.preHeader !== "undefined") {
                 return ` <p class="nav-d1__pre-header">
                 ${data.preHeader}
              </p>`
-              
+
             } else {
                 return '';
             }
         }
-            
-         postHeaderText1 = (data) => {
+
+        postHeaderText1 = (data) => {
             if (typeof data.postHeaderText1 !== "undefined") {
                 return `   <p class="nav-d1__post-header nav-d1__post-header-line1">
                 ${data.postHeaderText1}
                 </p>`
-              
+
             } else {
                 return '';
             }
-            
+
         }
         postHeaderText2 = (data) => {
             if (typeof data.postHeaderText2 !== "undefined") {
                 return `   <p class="nav-d1__post-header nav-d1__post-header-line2">
                 ${data.postHeaderText2}
                 </p>`
-              
+
             } else {
                 return '';
             }
@@ -2451,43 +2890,47 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
                 return `<p class="nav-d1__post-header nav-d1__post-header-line3">
                 ${data.postHeaderText3}
                 </p>`
-              
+
             } else {
                 return '';
             }
         }
 
-        return `<div class="nav-d1" aria-hidden="false">
-        <a class="nav-d1__link-wrapper"
-            aria-label="${preHeader(data) + data.promotion + postHeaderText1(data) + postHeaderText2(data) + postHeaderText3(data) + data.ctaText}"
+        html = (data) => {
+            return `<div class="nav-d1" aria-hidden="false">
+            <a class="nav-d1__link-wrapper"
+            aria-label="${data.preHeader || ''}. ${data.promotion || ''}. ${data.postHeaderText1 || ''}. ${data.postHeaderText2 || ''}. ${data.postHeaderText3 || ''}. ${data.ctaText}"
             href="${data.url}" ${data.trackingCode} tabindex="-1">
-            <div class="nav-d1__content">
-                <div class="nav-d1__main-message">
-                    ${preHeader(data)}
-                    <div class="nav-d1__discount-group">
-                        <p class="nav-d1__discount">
-                        ${data.promotion}
-                        </p>
-                      <!-- <div class="nav-d1__perc-group">
-                        <p class="nav-d1__perc-off-line1">%</p>
-                        <p class="nav-d1__perc-off-line2">OFF</p>
-                        </div> -->
-                    </div>
-                    <div class="nav-d1__post-header-group">
-                        ${postHeaderText1(data)}
-                        ${postHeaderText2(data)}
-                        ${postHeaderText3(data)}
-                    </div>
-                        <button class="nav-d1__cta nav-d1__cta--blue"
-                        aria-label="${preHeader(data) + data.promotion + postHeaderText1(data) + postHeaderText2(data) + postHeaderText3(data) + data.ctaText}"
+                <div class="nav-d1__content">
+                    <div class="nav-d1__main-message">
+                        ${preHeader(data)}
+                        <div class="nav-d1__discount-group">
+                            <p class="nav-d1__discount">
+                            ${data.promotion}
+                            </p>
+                          <!-- <div class="nav-d1__perc-group">
+                            <p class="nav-d1__perc-off-line1">%</p>
+                            <p class="nav-d1__perc-off-line2">OFF</p>
+                            </div> -->
+                        </div>
+                        <div class="nav-d1__post-header-group">
+                            ${postHeaderText1(data)}
+                            ${postHeaderText2(data)}
+                            ${postHeaderText3(data)}
+                        </div>
+                            <button class="nav-d1__cta nav-d1__cta--blue"
+                            aria-label="${data.preHeader || ''}. ${data.promotion || ''}. ${data.postHeaderText1 || ''}. ${data.postHeaderText2 || ''}. ${data.postHeaderText3 || ''}. ${data.ctaText}"
                             tabindex="0">
-                            ${data.ctaText}
-                        </button>
+                                ${data.ctaText}
+                            </button>
+                        </div>
                     </div>
-                </div>
-        </a>
-    </div>`
-    },
+            </a>
+        </div>`
+        }
+
+        return styles(data) + '\n' + html(data);
+    }
 
 
 }
