@@ -2158,9 +2158,9 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         }
     
         .cpcm-data .slugContent .cross-promo-module.${data.className} img {
-            margin: -10% -35%;
-            max-width: 170%;
-            width: 170%;
+            margin: -10% -30%;
+            max-width: 160%;
+            width: 160%;
             max-height: inherit;
         }
     
@@ -2181,7 +2181,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         }
     
         .cpcm-data .slugContent .cross-promo-module.${data.className} .title {
-            margin: 10% 0% 0%;
+            margin: 10% 4% 0%;
             font-size: 150%;
         }
     
@@ -2247,7 +2247,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
                 width: 140%;
             }
             .cpcm-data .slugContent .cross-promo-module.${data.className} img {
-                margin: 0% -35%;
+                margin: 0% -30%;
             }
         }
     
