@@ -643,7 +643,7 @@ module.exports = {
     }
 
     .site-wrapper .hero-banner .hero-banner__main-text {
-        width: 50%;
+        width: 45%;
         margin-left: auto;
         position: relative;
         text-align: left;
@@ -677,8 +677,7 @@ module.exports = {
         font-size: 650%;
         font-family: lato, sans-serif;
         font-weight: bold;
-        text-transform: uppercase;
-        line-height: .8;
+        line-height:1;
         margin-bottom: 1%;
     }
 
@@ -838,13 +837,14 @@ module.exports = {
 
         .site-wrapper .hero-banner .hero-banner__post-header-line-1 {
             font-size: 82%;
-            line-height: 1;
         }
 
         .site-wrapper .hero-banner .hero-banner__post-header-line-2 {
             font-size: 65%;
         }
-
+        .site-wrapper .hero-banner .hero-banner__post-header-line-3 {
+            font-size:95%;
+        }
         .site-wrapper .hero-banner .hero-banner__disclaimer {
             font-size: 100%;
             margin-left: 0;
@@ -878,7 +878,6 @@ module.exports = {
         }
 
         .site-wrapper .hero-banner .hero-banner__post-header-line-1 {
-            letter-spacing: 1px;
             font-size: 90%;
         }
 
@@ -1000,7 +999,12 @@ module.exports = {
     dealsDrawerMainGenerator: (data, v) => {
         console.log('hit');
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v;
         let markup = '';
         data.map((val, i) => {
@@ -1017,7 +1021,12 @@ module.exports = {
     }, 
     dealsDrawerRightGenerator: (data,v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v;
 
         data.map((val, i) => {
@@ -1034,7 +1043,12 @@ module.exports = {
     },
     promoShortBillboardGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let fileName = v;
         let markup = '';
         let styles = module.exports.promoShortStyles();
@@ -1051,7 +1065,10 @@ module.exports = {
     },
     heroBannersGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } 
+
         data.map((val, i) => {
             // console.log(val)
             let fileName = val.name;
@@ -1072,7 +1089,12 @@ module.exports = {
     },
     featureProductSpotlightGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v;
         let markup = '';
         data.map((val, i) => {
@@ -1111,7 +1133,7 @@ module.exports = {
                 style="max-height:133px;" />
         </div>
         <button tabindex="-1"
-            style="padding: 8px !important; border-radius: 5px; margin: 2px 0 0 26px; text-align: center; text-transform: uppercase; background: #0076b4; color: #fff;width: 30px;">
+            style="padding: 8px !important; border-radius: 5px; margin: 2px 0 0 26px; text-align: center; text-transform: uppercase; background: #0458ad; color: #fff;width: 30px;">
             Shop Now
         </button>
     </a>
@@ -1123,8 +1145,11 @@ module.exports = {
     promoShortTemplate: (data) => {
         return `    <div class="hp_section2_circle">
         <a href="${data.url}" tabindex="0" ${data.trackingCode}>
-            <img
-                src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=330&hei=330&fmt=pjpeg&qlt=75,0&op_sharpen=0&resMode=sharp2&op_usm=1.75,0.3,2,0&iccEmbed=0" alt="">
+        <lazy-load options='{"attributes": ["src"]}'>
+        <img  src="/images/loader.gif" alt=""
+            data-src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=330&hei=330&fmt=pjpeg&qlt=75,0&op_sharpen=0&resMode=sharp2&op_usm=1.75,0.3,2,0&iccEmbed=0" >
+     </lazy-load>
+            
             <p class="hp_section2_circle_title">
             ${data.promotion}
             </p>
@@ -1275,10 +1300,11 @@ module.exports = {
         return `   <div class="hp_section3_square">
         <a href="${data.url}"
         ${data.trackingCode}>
-
-            <img alt="${data.altTxt}"
-                src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=330&hei=240&fmt=pjpeg&qlt=75,0&op_sharpen=0&resMode=sharp2&op_usm=1.75,0.3,2,0&iccEmbed=0">
-            <p class="hp_section3_square_title">
+        <lazy-load options='{"attributes": ["src"]}'>
+            <img src="/images/loader.gif" alt=""
+                data-src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/${data.imageName}?wid=330&hei=240&fmt=pjpeg&qlt=75,0&op_sharpen=0&resMode=sharp2&op_usm=1.75,0.3,2,0&iccEmbed=0">
+         </lazy-load>
+                <p class="hp_section3_square_title">
               ${data.title}
             </p>
             <p class="hp_section3_square_subtitle">
@@ -1297,7 +1323,9 @@ module.exports = {
     },
     healthFitnessSectionGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } 
         let fileName = v;
         let markup = '';
         let styles = module.exports.healthFitnessStyles();
@@ -1305,11 +1333,13 @@ module.exports = {
             let html = module.exports.healthFitnessTemplate(val);
             markup += html;
         });
-        markup = styles + module.exports.healthFitnessWrapper(markup)
+        markup = styles + module.exports.healthFitnessWrapper(markup);
         fs.writeFile(`./${fileName}/${fileName}.html`, markup, function (err) {
             if (err) throw err;
 
         });
+
+       
     },
     htmlAdGeneralStyles: () => {
         return `
@@ -1944,6 +1974,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             return false;
         }
 
+
         let folderName = v,
             markup = '',
             styles = module.exports.htmlAdGeneralStyles();
@@ -2015,8 +2046,11 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
     },
     crossPromosGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
-        let folderName = v;
+
+        if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            let folderName = v;
         data.map((val, i) => {
             // console.log(val)
             let fileName = val.name;
@@ -2031,10 +2065,18 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             });
 
         });
+        }
+
+       
     },
     homepageBillboardsGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v;
         let fileName = v;
         let rightMarkup = '';
@@ -2093,7 +2135,12 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
     },
     BOTBGenerator: (data, v) => {
         const fs = require('fs');
-        fs.mkdirSync(v);
+           if (!fs.existsSync(v)) {
+            fs.mkdirSync(v);
+        } else {
+            return false;
+        }
+
         let folderName = v;
         let markup = '';
         let fileName = v;
@@ -2625,7 +2672,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
           
             .site-wrapper .bmsm-d2__cta-carrot,
             .site-wrapper .bmsm-d2__cta-carrot {
-              color: #0076b4 !important;
+              color: #0458ad !important;
             }
           
             .site-wrapper .bmsm-d2__image-container,
@@ -2831,8 +2878,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             .site-wrapper .nav-d1__cta,
             .content-asset .nav-d1__cta {
                 text-decoration: none;
-                font-size: 12px;
-                text-transform: uppercase;
+                font-size: 12px;    
                 display: block;
                 width: 190px;
                 color: #fff !important;
@@ -2853,14 +2899,14 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         
             .site-wrapper .nav-d1__cta--blue,
             .content-asset .nav-d1__cta--blue {
-                background-color: #0076b4;
+                background-color: #0458ad;
             }
         
             .site-wrapper .nav-d1__cta--blue:hover,
             .site-wrapper .nav-d1__cta--blue:focus,
             .content-asset .nav-d1__cta--blue:hover,
             .content-asset .nav-d1__cta--blue:focus {
-                background-color: #0076b4 !important;
+                background-color: #0458ad !important;
                 color: white !important;
             }
         
@@ -2869,7 +2915,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
                 font-family: lato, sans-serif;
                 font-weight: bold;
                 font-size: 17.5px;
-                color: #0076b4;
+                color: #0458ad;
                 margin-bottom: 3%;
             }
         
@@ -3031,7 +3077,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             }
         
             .content-asset .nav-d1__post-header-line3 span {
-                color: #0076b4;
+                color: #0458ad;
                 display: inline-block;
                 line-height: 1;
                 text-transform: uppercase;
@@ -3111,7 +3157,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
                     ${postHeaderText3(data)}
                 </div>
                 <button class="nav-d1__cta nav-d1__cta--blue"
-                    aria-label="${data.preHeader || ''}. ${data.promotion || ''}. ${data.postHeaderText1 || ''}. ${data.postHeaderText2 || ''}. ${data.postHeaderText3 || ''}. ${data.ctaText}"
+                    aria-label="${data.preHeader || ''} ${data.promotion || ''} ${data.postHeaderText1 || ''} ${data.postHeaderText2 || ''} ${data.postHeaderText3 || ''} ${data.ctaText}"
                     tabindex="0">
                     ${data.ctaText}
                 </button>
@@ -3349,7 +3395,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
         
             .hp_wrapper .hp_bb .hp_bb_right .hp_bb_right_a2_content p.hp_bb_right_a2_content_shipping .hp_bb_right_a2_content_shipping_coupon {
                 text-transform: uppercase;
-                /* color: #0076b4; */
+                /* color: #0458ad; */
                 color: white;
                 font-weight: bold;
             }
@@ -3357,7 +3403,7 @@ h2.39c1.08,0,1.99,0.8,1.99,1.86c0,1.13-0.9,1.99-1.99,1.99H163.25L163.25,60.16z" 
             .hp_wrapper .hp_bb .hp_bb_right .hp_bb_right_a2_content_cta {
                 text-decoration: none;
                 font-size: 1em;
-                color: #0076b4;
+                color: #0458ad;
                 text-transform: capitalize;
                 display: inline-block;
                 padding: .83333vw 4.44444vw;

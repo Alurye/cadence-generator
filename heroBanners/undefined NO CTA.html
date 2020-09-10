@@ -1,0 +1,328 @@
+<style>
+    .site-wrapper .hero-banner {
+        font-size: 1rem;
+        background-color: #f4f4f4;
+        border: 1px solid #d3d3d3;
+        width: 100%;
+        font-family: lato, serif;
+    }
+
+    .site-wrapper .hero-banner img {
+        width: 100% !important;
+    }
+
+    .site-wrapper .hero-banner .mobile-only,
+    .site-wrapper .hero-banner .mobile-only-inline {
+        display: none !important;
+    }
+
+    .site-wrapper .hero-banner strong {
+        font-family: lato, serif;
+        font-weight: bold;
+    }
+
+    .site-wrapper .hero-banner p {
+        line-height: 1;
+        color: #002169;
+    }
+
+    .site-wrapper .hero-banner p,
+    .site-wrapper .hero-banner span {
+        font-family: inherit;
+    }
+
+    .site-wrapper .hero-banner sup {
+        font-size: 56%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__backdrop {
+        width: 100%;
+        position: relative;
+    }
+
+    .site-wrapper .hero-banner.hb-no-cta .hero-banner__backdrop {
+        min-height: 259px;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__main-text {
+        width: 45%;
+        margin-left: auto;
+        position: relative;
+        text-align: left;
+        margin-right: 2%;
+        float: right;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__main-text-wrapper {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 0;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__pre-header {
+        font-family: lato, serif;
+        font-weight: bold;
+        font-size: 220%;
+        margin-bottom: 1%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__top-header {
+        color: #0E1C64;
+        font-size: 196%;
+        margin-bottom: 3%;
+        margin-left: 2%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__bmsm {
+        font-size: 650%;
+        font-family: lato, sans-serif;
+        font-weight: bold;
+        line-height:1;
+        margin-bottom: 1%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__perc {
+        font-family: lato, serif;
+        font-weight: bold;
+        font-size: 969%;
+        line-height: 77%;
+        padding-top: 23%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__off {
+        font-family: lato, serif;
+        font-weight: bold;
+        font-size: 489%;
+        margin-top: -6%;
+        text-align: center;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__post-header-line-1,
+    .site-wrapper .hero-banner .hero-banner__post-header-line-2 {
+        font-size: 208%;
+        line-height: 1.2;
+        font-family: lato, serif;
+        margin-top: 1%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__post-header-line-2 {
+        font-size: 180%;
+        font-family: lato, serif;
+        font-weight: bold;
+        border-top: 1px solid #012169;
+        border-bottom: 1px solid #012169;
+        display: inline-block;
+        margin-top: 3%;
+        line-height: 1.3;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__post-header-line-3 {
+        font-size: 180%;
+        margin-top: 2%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__post-header-line-3 span {
+      color:#07689b;
+      font-weight: bold;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__disclaimer {
+        font-family: lato, serif;
+        color: #666;
+        margin-left: -19%;
+        font-size: 160%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__cta-container {
+        width: 99.125%;
+        position: relative;
+        text-align: right;
+        margin: 0 auto;
+    }
+
+    .site-wrapper .hero-banner.hb-no-cta .hero-banner__cta-container {
+        display: none;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__cta-container p {
+        margin-top: 2.25%;
+        text-align: left;
+        margin-left: 2.25%;
+        color: #666;
+        line-height: 130%;
+        font-family: corisandelight;
+        font-size: 160%;
+        float: left;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__cta {
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: #fff;
+        display: inline-block;
+        padding: 10px 37px;
+        background-color: #0458ad;
+        text-align: center;
+        font-family: lato, serif;
+        font-weight: bold;
+        border-radius: 5px;
+        margin: 2%;
+    }
+
+    .site-wrapper .hero-banner .hero-banner__cta:hover {
+        background-color: #07689b;
+    }
+
+    .badge1 {
+        width: 10%;
+        position: absolute;
+        top: 8%;
+        left: 5%;
+    }
+
+    .badge2 {
+        width: 10%;
+        position: absolute;
+        top: 8%;
+        right: 5%;
+    }
+
+    @media screen and (max-width: 1368px) {
+        .site-wrapper .hero-banner {
+            font-size: .72vw;
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        .site-wrapper .hero-banner {
+            font-size: 2.5vw;
+        }
+
+        .site-wrapper .hero-banner .mobile-only {
+            display: block !important;
+        }
+
+        .site-wrapper .hero-banner .mobile-only-inline {
+            display: inline !important;
+        }
+
+        .site-wrapper .hero-banner .desktop-only {
+            display: none !important;
+        }
+
+        .site-wrapper .hero-banner.hb-no-cta .hero-banner__backdrop {
+            min-height: 79px;
+            padding-bottom: 0;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__pre-header {
+            font-size: 100%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__top-header {
+            color: #0E1C64;
+            font-size: 75%;
+            margin-bottom: 3%;
+            margin-left: 2%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__perc {
+            font-size: 258%;
+            padding-top: 22%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__off {
+            font-size: 158%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__post-header-line-1 {
+            font-size: 82%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__post-header-line-2 {
+            font-size: 65%;
+        }
+        .site-wrapper .hero-banner .hero-banner__post-header-line-3 {
+            font-size:95%;
+        }
+        .site-wrapper .hero-banner .hero-banner__disclaimer {
+            font-size: 100%;
+            margin-left: 0;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__cta-container p {
+            font-size: 78%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__cta {
+            width: 40%;
+            font-size: 1.2rem;
+            margin-right: 2.5%;
+            padding: 8px 10px;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__bmsm {
+            font-size: 200%;
+        }
+
+        ​ .site-wrapper .hero-banner .hero-price-text-wrapper p {
+            font-size: 80%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__main-text {}
+    }
+
+    @media screen and (max-width: 470px) {
+        .site-wrapper .hero-banner .hero-banner__main-text-wrapper {
+            top: 50%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__post-header-line-1 {
+            font-size: 90%;
+        }
+
+        .site-wrapper .hero-banner .hero-banner__post-header-line-1 br {
+            display: none;
+        }
+    }
+</style>
+<div class="hero-banner">
+    <div class="hero-banner__backdrop">
+        
+        
+        <picture>
+    <source
+        srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/undefined?wid=360&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0"
+        media="(max-width: 360px)">
+    <source
+        srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/undefined?wid=470&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0"
+        media="(max-width: 470px)">
+    <source
+        srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/undefined?wid=768&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0"
+        media="(max-width: 768px)">
+    <source
+        srcset="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/undefined?wid=1024&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0"
+        media="(max-width: 1024px)">
+    <img
+        src="https://s7.vitaminshoppe.com/is/image/VitaminShoppe/undefined?wid=1080&amp;fmt=pjpeg&amp;pscan=auto&amp;qlt=80,0&amp;op_sharpen=0&amp;resMode=sharp2&amp;op_usm=1.75,0.3,2,0&amp;iccEmbed=0" />
+</picture>
+        <div class="hero-banner__main-text-wrapper">
+            <div class="hero-banner__main-text">
+
+                
+                <div class="hero-banner__bmsm-group">
+                    
+                </div>
+                <div class="hero-banner__post-header-group">
+                    <p class="hero-banner__post-header-line-1">
+     
+</p>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
