@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "lockfileVersion": 1,
   "dependencies": {
-    "xlsx": "^0.15.4"
+    "xlsx": "^0.17.0"
   }
 }
